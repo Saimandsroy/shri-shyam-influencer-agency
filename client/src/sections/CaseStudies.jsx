@@ -97,7 +97,7 @@ const CaseStudyVideo = ({ src, poster, inViewport, onView }) => {
     const video = videoRef.current;
     if (!video) return;
     if (inViewport) {
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     } else {
       video.pause();
     }
@@ -105,7 +105,7 @@ const CaseStudyVideo = ({ src, poster, inViewport, onView }) => {
 
   return (
     <div
-      className="relative w-full rounded-[20px] overflow-hidden bg-[#EDE8DF] cursor-pointer group"
+      className="relative w-full rounded-[20px] overflow-hidden bg-[#eaf0f6] border border-gray-200/50 shadow-lg cursor-pointer group"
       style={{ aspectRatio: '16/9' }}
       onClick={onView}
     >
@@ -121,8 +121,8 @@ const CaseStudyVideo = ({ src, poster, inViewport, onView }) => {
       />
       {/* Hover play overlay */}
       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20">
-        <div className="w-14 h-14 rounded-full bg-[rgba(255,255,255,0.9)] flex items-center justify-center shadow-lg">
-          <svg className="w-6 h-6 text-[#141414] ml-1" fill="currentColor" viewBox="0 0 24 24">
+        <div className="w-14 h-14 rounded-full bg-[rgba(255,255,255,0.95)] flex items-center justify-center shadow-lg">
+          <svg className="w-6 h-6 text-[#091337] ml-1" fill="currentColor" viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z" />
           </svg>
         </div>
@@ -144,21 +144,21 @@ const CaseStudyItem = ({ study, index, onView }) => {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="flex flex-col justify-center"
     >
-      <span className="font-label text-[11px] text-[#B8860B] tracking-[0.12em] mb-3">
+      <span className="font-label text-[11px] text-[#de0d40] tracking-[0.12em] font-bold mb-3">
         {study.brand.toUpperCase()}
       </span>
 
-      <h3 className="text-[26px] sm:text-[32px] font-semibold text-[#141414] tracking-tight mb-6 leading-tight">
+      <h3 className="text-[26px] sm:text-[32px] font-bold text-[#091337] tracking-tight mb-6 leading-tight">
         {study.campaign}
       </h3>
 
       <div className="flex gap-6 mb-6">
         {study.metrics.map((m) => (
           <div key={m.label}>
-            <span className="block text-[28px] sm:text-[36px] font-semibold tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-[#B8860B] to-[#8B6508]">
+            <span className="block text-[28px] sm:text-[36px] font-bold tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-[#de0d40] to-[#504ed8]">
               {m.value}
             </span>
-            <span className="font-label text-[10px] text-[#999] mt-1 block">
+            <span className="font-label text-[10px] text-gray-500 mt-1 block">
               {m.label}
             </span>
           </div>
@@ -167,21 +167,21 @@ const CaseStudyItem = ({ study, index, onView }) => {
 
       <div className="flex flex-wrap items-center gap-2 mb-6">
         {study.platforms.map((p) => (
-          <span key={p} className="font-label text-[10px] text-[#555] bg-[#F5F0E8] border border-[rgba(0,0,0,0.08)] rounded-full px-3 py-1">
+          <span key={p} className="font-label text-[10px] text-gray-600 bg-gray-100 border border-gray-200/80 rounded-full px-3 py-1 font-semibold">
             {p}
           </span>
         ))}
-        <span className="font-label text-[10px] text-[#999]">
+        <span className="font-label text-[10px] text-gray-400 font-semibold">
           · {study.influencers} Influencers · {study.days} Days
         </span>
       </div>
 
       <button
         onClick={() => onView(study)}
-        className="inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-wide text-[#B8860B] hover:underline transition-all cursor-pointer"
+        className="inline-flex items-center gap-1.5 text-[13px] font-bold tracking-wide text-[#de0d40] hover:text-[#504ed8] transition-colors cursor-pointer"
       >
         View Full Case Study
-        <span>→</span>
+        <span className="inline-block transition-transform duration-300 transform group-hover:translate-x-1">→</span>
       </button>
     </motion.div>
   );
@@ -221,7 +221,7 @@ const CaseStudies = () => {
 
   return (
     <>
-      <section id="about" className="bg-[#FAF8F4] py-20 lg:py-28">
+      <section id="campaigns" className="bg-[#f6faff] py-20 lg:py-28 text-[#091337]">
         <div className="max-w-[1200px] mx-auto px-6">
 
           <div className="text-center mb-16">
@@ -229,7 +229,7 @@ const CaseStudies = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="font-label text-[12px] gold-text tracking-[0.15em] mb-4 block"
+              className="font-label text-[12px] text-[#de0d40] tracking-[0.15em] mb-4 block"
             >
               CASE STUDIES
             </motion.span>
@@ -241,11 +241,11 @@ const CaseStudies = () => {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="text-[36px] sm:text-[44px] lg:text-[52px] font-semibold tracking-tight leading-[1.1]"
             >
-              <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#1a1a1a] to-[#888]">
+              <span className="block">
                 Campaigns That Delivered
               </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#B8860B] to-[#8B6508]">
-                Real Results
+              <span className="block text-[#de0d40]">
+                Real ROI.
               </span>
             </motion.h2>
           </div>

@@ -7,10 +7,15 @@ const campaigns = [
   { id: 1, title: 'boAt × Tech Creators', platform: 'YouTube', views: '4.2M', size: 'large', src: '/WhatsApp Video 2026-06-10 at 10.39.13.mp4' },
   { id: 2, title: 'Nykaa × Beauty', platform: 'Instagram', views: '3.8M', size: 'large', src: '/WhatsApp Video 2026-06-10 at 10.39.13 (1).mp4' },
   { id: 3, title: 'Zomato × Food Vloggers', platform: 'Reels', views: '2.1M', size: 'large', src: '/WhatsApp Video 2026-06-10 at 10.39.14.mp4' },
+  { id: 8, title: 'OnePlus × Gaming Streamers', platform: 'YouTube', views: '5.4M', size: 'large', src: '/WhatsApp Video 2026-06-10 at 22.39.24.mp4' },
+  { id: 9, title: 'Flipkart × Big Billion Days', platform: 'Instagram', views: '6.7M', size: 'large', src: '/WhatsApp Video 2026-06-10 at 22.39.47.mp4' },
+  { id: 10, title: 'Myntra × Winter Fashion', platform: 'Reels', views: '4.9M', size: 'large', src: '/WhatsApp Video 2026-06-10 at 22.39.47 (1).mp4' },
+
   { id: 4, title: 'Mamaearth × Lifestyle', platform: 'Reels', views: '1.9M', size: 'small', src: '/WhatsApp Video 2026-06-10 at 10.39.14 (1).mp4' },
   { id: 5, title: 'Meesho × Fashion', platform: 'Instagram', views: '5.1M', size: 'small', src: '/WhatsApp Video 2026-06-10 at 10.39.14 (2).mp4' },
   { id: 6, title: 'boAt Rockerz × Music', platform: 'YouTube', views: '2.7M', size: 'small', src: '/WhatsApp Video 2026-06-10 at 10.39.16.mp4' },
   { id: 7, title: 'Urban Company', platform: 'Reels', views: '1.2M', size: 'small', src: '/WhatsApp Video 2026-06-10 at 10.39.16 (1).mp4' },
+  { id: 11, title: 'Groww × Finance Vloggers', platform: 'YouTube', views: '1.8M', size: 'small', src: '/WhatsApp Video 2026-06-10 at 22.39.48.mp4' },
 ];
 
 const platformColors = {
@@ -90,7 +95,7 @@ const VideoCard = ({ campaign, isPortrait = false, onView }) => {
     const video = videoRef.current;
     if (!video) return;
     if (inView) {
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     } else {
       video.pause();
     }
@@ -102,9 +107,8 @@ const VideoCard = ({ campaign, isPortrait = false, onView }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.6 }}
-      className={`relative overflow-hidden rounded-2xl cursor-pointer group ${
-        isPortrait ? 'aspect-[9/16]' : 'aspect-video'
-      }`}
+      className={`relative overflow-hidden rounded-2xl cursor-pointer group ${isPortrait ? 'aspect-[9/16]' : 'aspect-video'
+        }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onView(campaign)}
@@ -167,7 +171,7 @@ const VideoReel = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="font-label text-[12px] gold-text tracking-[0.15em] mb-4 block"
+              className="font-label text-[12px] text-[#de0d40] tracking-[0.15em] mb-4 block"
             >
               CAMPAIGN REELS
             </motion.span>
@@ -177,7 +181,7 @@ const VideoReel = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="text-[36px] sm:text-[48px] font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#1a1a1a] to-[#888] mb-4"
+              className="text-[36px] sm:text-[48px] font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#091337] to-[#4a5568] mb-4"
             >
               See Real Campaigns
             </motion.h2>
@@ -200,8 +204,8 @@ const VideoReel = () => {
             ))}
           </div>
 
-          {/* Row 2: 4 Portrait Videos */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+          {/* Row 2: 5 Portrait Videos */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
             {smallVideos.map((c) => (
               <VideoCard key={c.id} campaign={c} isPortrait onView={setViewing} />
             ))}

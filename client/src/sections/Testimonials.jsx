@@ -18,33 +18,33 @@ const TestimonialCard = ({ t, delay }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay, duration: 0.5 }}
-    className="bg-[#FAF8F4] border border-[rgba(0,0,0,0.07)] rounded-2xl p-6 mb-4 break-inside-avoid"
+    className="bg-white border border-[rgba(9,19,56,0.06)] shadow-[0_10px_30px_rgba(9,19,55,0.02)] rounded-2xl p-6 mb-4 break-inside-avoid"
   >
     {/* Stars */}
     <div className="flex gap-0.5 mb-4">
       {Array.from({ length: t.rating }).map((_, i) => (
-        <span key={i} className="text-[#D4A017] text-[16px]">★</span>
+        <span key={i} className="text-[#ffc201] text-[16px]">★</span>
       ))}
     </div>
 
     {/* Quote */}
-    <p className="text-[15px] italic text-[#444] leading-[1.8] mb-5">
+    <p className="text-[15px] italic text-[#4a5568] leading-[1.8] mb-5">
       &ldquo;{t.quote}&rdquo;
     </p>
 
     {/* Divider */}
-    <div className="w-full h-px bg-[rgba(0,0,0,0.07)] mb-4" />
+    <div className="w-full h-px bg-[rgba(9,19,56,0.06)] mb-4" />
 
     {/* Author */}
     <div className="flex items-center gap-3">
-      <div className="w-10 h-10 rounded-full bg-[#F5EDD0] flex items-center justify-center">
-        <span className="text-[13px] font-semibold text-[#B8860B]">
+      <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
+        <span className="text-[13px] font-semibold text-[#de0d40]">
           {getInitials(t.name)}
         </span>
       </div>
       <div>
-        <p className="text-[14px] font-medium text-[#141414]">{t.name}</p>
-        <p className="font-label text-[12px] text-[#999]">{t.role}</p>
+        <p className="text-[14px] font-bold text-[#091337]">{t.name}</p>
+        <p className="font-label text-[12px] text-gray-400">{t.role}</p>
       </div>
     </div>
   </motion.div>
@@ -61,7 +61,7 @@ const Testimonials = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="font-label text-[12px] gold-text tracking-[0.15em] mb-4 block"
+            className="font-label text-[12px] text-[#de0d40] tracking-[0.15em] mb-4 block"
           >
             CLIENT LOVE
           </motion.span>
@@ -71,7 +71,7 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-[36px] sm:text-[44px] lg:text-[48px] font-semibold tracking-tight leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-[#1a1a1a] to-[#888]"
+            className="text-[36px] sm:text-[44px] lg:text-[48px] font-semibold tracking-tight leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-[#091337] to-[#4a5568]"
           >
             Trusted by India&apos;s Fastest<br className="hidden sm:block" /> Growing Brands
           </motion.h2>

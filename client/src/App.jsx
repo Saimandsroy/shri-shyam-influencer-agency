@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiArrowUp } from 'react-icons/hi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -11,6 +12,10 @@ import InfluencerMarquee from './sections/InfluencerMarquee';
 import CaseStudies from './sections/CaseStudies';
 import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
+import WhyChooseUs from './sections/WhyChooseUs';
+import PlatformMarketing from './sections/PlatformMarketing';
+import RoiCalculator from './sections/RoiCalculator';
+import CampaignDashboard from './sections/CampaignDashboard';
 
 /* ─── Page Loader ─── */
 const Loader = ({ onComplete }) => {
@@ -25,13 +30,13 @@ const Loader = ({ onComplete }) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: 'easeInOut' }}
-      className="fixed inset-0 z-[200] bg-[#FAF8F4] flex flex-col items-center justify-center"
+      className="fixed inset-0 z-[200] bg-[#091337] flex flex-col items-center justify-center"
     >
       <motion.span
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="font-display text-[32px] font-bold text-[#B8860B] tracking-tight"
+        className="font-display text-[32px] font-bold text-[#ffc201] tracking-tight"
       >
         SSCA
       </motion.span>
@@ -39,7 +44,7 @@ const Loader = ({ onComplete }) => {
         initial={{ width: 0 }}
         animate={{ width: 48 }}
         transition={{ duration: 1, delay: 0.3, ease: 'easeInOut' }}
-        className="h-[2px] bg-[#B8860B] mt-3 rounded-full"
+        className="h-[2px] bg-[#ffc201] mt-3 rounded-full"
       />
     </motion.div>
   );
@@ -64,13 +69,31 @@ const ScrollToTop = () => {
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.25 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-[#141414] text-white flex items-center justify-center shadow-lg hover:bg-[#B8860B] transition-colors duration-300"
+          className="fixed bottom-24 right-8 z-50 w-12 h-12 rounded-full bg-[#091337] text-white flex items-center justify-center shadow-lg hover:bg-[#de0d40] border border-white/10 transition-colors duration-300"
           aria-label="Scroll to top"
         >
           <HiArrowUp size={20} />
         </motion.button>
       )}
     </AnimatePresence>
+  );
+};
+
+/* ─── Floating WhatsApp Button ─── */
+const WhatsAppButton = () => {
+  return (
+    <a
+      href="https://wa.me/919060293631?text=Hi!%20I%20am%20interested%20in%20launching%20an%20influencer%20campaign%20with%20SSCA."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 bg-[#25d366] text-white rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all duration-300 hover:scale-105 group border border-white/10"
+      aria-label="Chat on WhatsApp"
+    >
+      <FaWhatsapp size={22} className="animate-pulse" />
+      <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-out font-display text-[13px] font-bold tracking-wide whitespace-nowrap">
+        Chat with us
+      </span>
+    </a>
   );
 };
 
@@ -95,12 +118,17 @@ function App() {
           <Hero />
           <VideoReel />
           <Services />
+          <WhyChooseUs />
+          <PlatformMarketing />
           <InfluencerMarquee />
+          <RoiCalculator />
+          <CampaignDashboard />
           <CaseStudies />
           <Testimonials />
           <Contact />
           <Footer />
           <ScrollToTop />
+          <WhatsAppButton />
         </motion.div>
       )}
     </>

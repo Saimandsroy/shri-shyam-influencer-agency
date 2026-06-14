@@ -54,11 +54,14 @@ const Contact = () => {
   };
 
   const inputClasses = (field) =>
-    `w-full bg-[#FAF8F4] border ${errors[field] ? 'border-red-400' : 'border-[rgba(0,0,0,0.1)]'} rounded-lg px-4 py-3 font-body text-[14px] text-[#141414] placeholder-[#999] focus:border-[#B8860B] focus:outline-none transition-colors`;
+    `w-full bg-[#f6faff] border ${errors[field] ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-3 font-body text-[14px] text-[#091337] placeholder-gray-400 focus:border-[#504ed8] focus:outline-none transition-colors`;
 
   return (
-    <section id="contact" className="bg-[#FAF8F4] py-20 lg:py-28">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section id="contact" className="bg-[#0f1634] text-white py-20 lg:py-28 relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(80,78,216,0.12),transparent_50%)] pointer-events-none" />
+
+      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
           {/* LEFT — Info */}
@@ -69,31 +72,39 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="flex flex-col justify-center"
           >
-            <span className="font-label text-[12px] gold-text tracking-[0.15em] mb-3 block">
-              GET STARTED
+            <span className="font-label text-[12px] text-[#ffc201] tracking-[0.15em] mb-3 block">
+              GET IN TOUCH
             </span>
 
-            <h2 className="text-[36px] sm:text-[44px] lg:text-[48px] font-semibold tracking-tight text-[#141414] leading-[1.1] mb-6">
+            <h2 className="text-[36px] sm:text-[44px] lg:text-[48px] font-bold tracking-tight leading-[1.1] mb-6">
               Ready to Grow With<br /> Real Influence?
             </h2>
 
-            <p className="font-body text-[15px] text-[#666] leading-[1.8] mb-8 max-w-[440px]">
+            <p className="font-body text-[15px] text-gray-300 leading-[1.8] mb-8 max-w-[440px]">
               Whether you&apos;re launching a product, building brand awareness, or driving sales — our team crafts influencer campaigns that deliver measurable impact across every platform.
             </p>
 
             {/* Contact Info */}
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
-                <FiMapPin className="text-[#B8860B] w-4 h-4 flex-shrink-0" />
-                <span className="font-body text-[14px] text-[#555]">Patna, Bihar, India</span>
+                <FiMapPin className="text-[#ffc201] w-4 h-4 flex-shrink-0" />
+                <span className="font-body text-[14px] text-gray-300">Patna, Bihar, India</span>
               </div>
               <div className="flex items-center gap-3">
-                <FiMail className="text-[#B8860B] w-4 h-4 flex-shrink-0" />
-                <span className="font-body text-[14px] text-[#555]">hello@srisyamcampaign.in</span>
+                <FiMail className="text-[#ffc201] w-4 h-4 flex-shrink-0" />
+                <span className="font-body text-[14px] text-gray-300">
+                  <a href="mailto:patnerships@thereachroots.com" className="hover:text-white transition-colors duration-300">
+                    patnerships@thereachroots.com
+                  </a>
+                </span>
               </div>
               <div className="flex items-center gap-3">
-                <FiPhone className="text-[#B8860B] w-4 h-4 flex-shrink-0" />
-                <span className="font-body text-[14px] text-[#555]">+91 XXXXX XXXXX</span>
+                <FiPhone className="text-[#ffc201] w-4 h-4 flex-shrink-0" />
+                <span className="font-body text-[14px] text-gray-300">
+                  <a href="tel:+919060293631" className="hover:text-white transition-colors duration-300">
+                    +91 90602 93631
+                  </a>
+                </span>
               </div>
             </div>
 
@@ -104,7 +115,7 @@ const Contact = () => {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="w-10 h-10 rounded-full bg-white border border-[rgba(0,0,0,0.08)] flex items-center justify-center text-[#555] hover:border-[#B8860B] hover:text-[#B8860B] transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:border-[#ffc201] hover:text-[#ffc201] transition-all duration-300"
                 >
                   <s.icon size={18} />
                 </a>
@@ -121,12 +132,16 @@ const Contact = () => {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-[20px] p-8 border border-[rgba(0,0,0,0.08)] shadow-sm"
+              className="bg-[#091337] rounded-[24px] p-8 border border-white/5 shadow-2xl relative"
             >
+              <h3 className="text-[20px] font-bold text-white mb-6 tracking-tight">
+                Request a Free Campaign Proposal
+              </h3>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
                   <input name="name" value={formData.name} onChange={handleChange} placeholder="Full Name *" className={inputClasses('name')} />
-                  {errors.name && <p className="text-red-500 text-[11px] mt-1 font-body">{errors.name}</p>}
+                  {errors.name && <p className="text-red-400 text-[11px] mt-1 font-body">{errors.name}</p>}
                 </div>
                 <div>
                   <input name="brand" value={formData.brand} onChange={handleChange} placeholder="Brand / Company Name" className={inputClasses('brand')} />
@@ -136,7 +151,7 @@ const Contact = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
                   <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email Address *" className={inputClasses('email')} />
-                  {errors.email && <p className="text-red-500 text-[11px] mt-1 font-body">{errors.email}</p>}
+                  {errors.email && <p className="text-red-400 text-[11px] mt-1 font-body">{errors.email}</p>}
                 </div>
                 <div>
                   <input name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="Phone Number" className={inputClasses('phone')} />
@@ -145,15 +160,15 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <select name="service" value={formData.service} onChange={handleChange} className={inputClasses('service')}>
-                  <option value="">Select Service</option>
+                  <option value="" className="text-[#091337]">Select Service</option>
                   {serviceOptions.map((s) => (
-                    <option key={s} value={s}>{s}</option>
+                    <option key={s} value={s} className="text-[#091337]">{s}</option>
                   ))}
                 </select>
                 <select name="budget" value={formData.budget} onChange={handleChange} className={inputClasses('budget')}>
-                  <option value="">Select Budget</option>
+                  <option value="" className="text-[#091337]">Select Budget</option>
                   {budgetOptions.map((b) => (
-                    <option key={b} value={b}>{b}</option>
+                    <option key={b} value={b} className="text-[#091337]">{b}</option>
                   ))}
                 </select>
               </div>
@@ -167,24 +182,24 @@ const Contact = () => {
                   rows={4}
                   className={inputClasses('message') + ' resize-none'}
                 />
-                {errors.message && <p className="text-red-500 text-[11px] mt-1 font-body">{errors.message}</p>}
+                {errors.message && <p className="text-red-400 text-[11px] mt-1 font-body">{errors.message}</p>}
               </div>
 
               <button
                 type="submit"
                 disabled={status.loading}
-                className="w-full bg-[#141414] text-white font-body text-[13px] font-medium py-4 rounded-lg hover:bg-[#B8860B] transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-[#de0d40] to-[#504ed8] text-white font-body text-[13px] font-semibold py-4 rounded-lg hover:shadow-[0_4px_15px_rgba(222,13,64,0.3)] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {status.loading ? 'Sending...' : 'Send Message'}
               </button>
 
               {status.success && (
-                <p className="mt-4 text-center font-body text-[14px] text-green-600">
+                <p className="mt-4 text-center font-body text-[14px] text-green-400">
                   ✓ Message sent successfully! We&apos;ll be in touch shortly.
                 </p>
               )}
               {status.error && (
-                <p className="mt-4 text-center font-body text-[14px] text-red-500">
+                <p className="mt-4 text-center font-body text-[14px] text-red-400">
                   {status.error}
                 </p>
               )}
