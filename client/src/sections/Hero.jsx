@@ -5,18 +5,21 @@ import { FaYoutube, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 const clientBrands = ['ONEPLUS', 'GROWW', 'MEESHO', 'AMAZON', 'PAYTM', 'BOAT', 'NYKAA', 'ZOMATO', 'MAMAEARTH', 'MYNTRA', 'FLIPKART'];
 
 const col1Media = [
-  { id: 'c1-1', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.13 (1).mp4', brand: 'Sony' },
-  { id: 'c1-2', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.16 (2).mp4', brand: 'Casio' },
-  { id: 'c1-3', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.14 (1).mp4', brand: 'Re\'equil' },
-  { id: 'c1-4', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.14 (2).mp4', brand: 'Beyoung' },
-  { id: 'c1-5', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.17.mp4', brand: 'Ajmal' },
+  { id: 'c1-1', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.13 (1).mp4', brand: 'Kurkure' },
+  { id: 'c1-2', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.16 (2).mp4', brand: 'Santoor' },
+  { id: 'c1-3', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.14 (1).mp4', brand: 'Paytm' },
+  { id: 'c1-4', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.14 (2).mp4', brand: 'India Gate' },
 ];
 
 const col2Media = [
-  { id: 'c2-1', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.13.mp4', brand: 'Saffola' },
-  { id: 'c2-2', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.14.mp4', brand: 'Yamaha' },
-  { id: 'c2-3', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.16.mp4', brand: 'Kapiva' },
-  { id: 'c2-4', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.16 (1).mp4', brand: 'Ikonic' },
+  { id: 'c1-5', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.17.mp4', brand: 'Joy' },
+  { id: 'c2-1', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.13.mp4', brand: 'Tira' },
+  { id: 'c2-2', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.14.mp4', brand: 'Maggi' },
+];
+
+const col3Media = [
+  { id: 'c2-3', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.16.mp4', brand: 'Google Gemini' },
+  { id: 'c2-4', type: 'video', src: '/WhatsApp Video 2026-06-10 at 10.39.16 (1).mp4', brand: 'Flipkart Minutes' },
   { id: 'c2-5', type: 'video', src: '/WhatsApp Video 2026-06-10 at 22.39.24.mp4', brand: 'boAt' },
 ];
 
@@ -144,90 +147,308 @@ const WordRotate = () => {
 /* ─── Brand Logo SVG Renderer ─── */
 const BrandLogo = ({ brand }) => {
   switch (brand?.toLowerCase()) {
-    case 'sony':
+    case 'kurkure':
       return (
-        <svg viewBox="0 0 100 35" className="w-10 h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="50" y="25" fontFamily="'Georgia', 'Times New Roman', serif" fontWeight="bold" fontSize="22" fill="#091337" textAnchor="middle" letterSpacing="1.5">SONY</text>
+        <svg viewBox="0 0 100 100" className="w-[36px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Wave ribbon background */}
+          <path 
+            d="M 8 58 C 8 38, 25 28, 50 43 C 75 58, 92 38, 92 23 C 92 43, 75 73, 50 63 C 25 53, 8 78, 8 58 Z" 
+            fill="#0d3896" 
+            stroke="#f57c00" 
+            strokeWidth="2.5" 
+            strokeLinejoin="round"
+          />
+          {/* Kurkure Text */}
+          <text 
+            x="50" 
+            y="53" 
+            fontFamily="'Arial Black', 'Impact', sans-serif" 
+            fontWeight="900" 
+            fontSize="20" 
+            fill="#ffffff" 
+            stroke="#d32f2f" 
+            strokeWidth="2.5" 
+            paintOrder="stroke fill"
+            textAnchor="middle"
+            transform="rotate(-7, 50, 53)"
+          >
+            Kurkure
+          </text>
         </svg>
       );
-    case 'casio':
+    case 'santoor':
       return (
-        <svg viewBox="0 0 100 35" className="w-10 h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="50" y="25" fontFamily="'Inter', Arial, sans-serif" fontWeight="900" fontSize="18" fill="#0f2b5c" textAnchor="middle" letterSpacing="0.8">CASIO</text>
-        </svg>
-      );
-    case 're\'equil':
-    case 'reequil':
-      return (
-        <svg viewBox="0 0 100 45" className="w-[42px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="50" y="22" fontFamily="'Inter', sans-serif" fontWeight="800" fontSize="11.5" fill="#083835" textAnchor="middle" letterSpacing="0.5">Re&apos;equil</text>
-          <line x1="15" y1="28" x2="85" y2="28" stroke="#083835" strokeWidth="1.2" />
-        </svg>
-      );
-    case 'beyoung':
-      return (
-        <svg viewBox="0 0 100 80" className="w-9 h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="28" r="16" fill="#ffc201" />
-          <path d="M43,24 Q50,15 57,24 Q50,26 43,24 Z" fill="#000" />
-          <path d="M41,29 Q50,37 59,29 Q50,31 41,29 Z" fill="#000" />
-          <text x="50" y="65" fontFamily="'Inter', sans-serif" fontWeight="900" fontSize="9" fill="#000" textAnchor="middle" letterSpacing="0.2">BEYOUNG</text>
-        </svg>
-      );
-    case 'ajmal':
-      return (
-        <svg viewBox="0 0 100 80" className="w-10 h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g fill="#b8860b">
-            <path d="M50,8 L52,28 L48,28 Z" />
-            <path d="M50,8 L55,28 L53,29 Z" />
-            <path d="M50,8 L45,28 L47,29 Z" />
-            <path d="M50,8 L58,28 L56,30 Z" />
-            <path d="M50,8 L42,28 L44,30 Z" />
-            <path d="M50,8 L61,29 L59,31 Z" />
-            <path d="M50,8 L39,29 L41,31 Z" />
-            <path d="M50,8 L64,30 L62,32 Z" />
-            <path d="M50,8 L36,30 L38,32 Z" />
-            <path d="M30,32 Q50,38 70,32 L70,35 Q50,41 30,35 Z" />
+        <svg viewBox="0 0 100 85" className="w-[36px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Lotus flower at the top */}
+          <g fill="#f57c00">
+            <path d="M 50 10 C 53 16 57 20 50 30 C 43 20 47 16 50 10 Z" />
+            <path d="M 50 30 C 42 27 38 18 43 14 C 45 18 47 24 50 30 Z" />
+            <path d="M 50 30 C 35 32 30 25 38 21 C 41 23 44 27 50 30 Z" />
+            <path d="M 50 30 C 58 27 62 18 57 14 C 55 18 53 24 50 30 Z" />
+            <path d="M 50 30 C 65 32 70 25 62 21 C 59 23 56 27 50 30 Z" />
           </g>
-          <rect x="22" y="42" width="56" height="15" fill="none" stroke="#b8860b" strokeWidth="1.5" rx="1.5" />
-          <text x="50" y="53" fontFamily="'Inter', sans-serif" fontWeight="800" fontSize="9" fill="#b8860b" textAnchor="middle" letterSpacing="0.8">AJMAL</text>
+          {/* Stylized SANTOOR text in red */}
+          <text 
+            x="50" 
+            y="51" 
+            fontFamily="'Playfair Display', 'Times New Roman', 'Georgia', serif" 
+            fontWeight="900" 
+            fontStyle="italic"
+            fontSize="18" 
+            fill="#d32f2f" 
+            textAnchor="middle"
+            letterSpacing="-0.6"
+          >
+            SANTOOR
+          </text>
+          {/* Orange crescent swoosh underneath */}
+          <path 
+            d="M 12 40 C 6 60, 40 76, 92 50 C 84 68, 38 68, 12 40 Z" 
+            fill="#f57c00" 
+          />
         </svg>
       );
-    case 'saffola':
+    case 'paytm':
       return (
-        <svg viewBox="0 0 100 80" className="w-10 h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50,20 C42,8 24,11 24,28 C24,44 50,63 50,63 C50,63 76,44 76,28 C76,11 58,8 50,20 Z" fill="#ffeb3b" stroke="#d32f2f" strokeWidth="2.5" />
-          <text x="50" y="36" fontFamily="'Inter', sans-serif" fontWeight="950" fontSize="10.5" fill="#d32f2f" textAnchor="middle">Saffola</text>
+        <svg viewBox="0 0 100 100" className="w-[35px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Blue circle outline */}
+          <circle cx="50" cy="50" r="43" stroke="#002970" strokeWidth="5.5" fill="none" />
+          {/* paytm text */}
+          <text 
+            x="50" 
+            y="56" 
+            fontFamily="'Inter', 'Arial Black', sans-serif" 
+            fontWeight="900" 
+            fontSize="19.5" 
+            textAnchor="middle"
+            letterSpacing="-0.5"
+          >
+            <tspan fill="#002970">pay</tspan>
+            <tspan fill="#00baf2">tm</tspan>
+          </text>
         </svg>
       );
-    case 'yamaha':
+    case 'india gate':
+    case 'india-gate':
+    case 'indiagate':
       return (
-        <svg viewBox="0 0 100 80" className="w-10 h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="28" r="16" fill="none" stroke="#000" strokeWidth="2" />
-          <g stroke="#000" strokeWidth="2.5" fill="none">
-            <line x1="50" y1="28" x2="50" y2="42" />
-            <path d="M46,34 Q50,30 54,34" />
-            <line x1="50" y1="28" x2="62" y2="21" />
-            <path d="M54,21 Q57,24 55,27" />
-            <line x1="50" y1="28" x2="38" y2="21" />
-            <path d="M46,21 Q43,24 45,27" />
+        <svg viewBox="0 0 100 88" className="w-[35px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* WORLD'S NO.1 text */}
+          <text 
+            x="50" 
+            y="7" 
+            fontFamily="'Inter', sans-serif" 
+            fontWeight="800" 
+            fontSize="4.5" 
+            fill="#5d251d" 
+            textAnchor="middle" 
+            letterSpacing="0.5"
+          >
+            WORLD&apos;S NO.1
+          </text>
+          
+          {/* India Gate monument structure */}
+          <g fill="#5d251d">
+            <rect x="36" y="22" width="6" height="23" />
+            <rect x="58" y="22" width="6" height="23" />
+            <rect x="42" y="22" width="16" height="6" />
+            <path d="M 42 28 L 42 32 Q 50 28 58 32 L 58 28 Z" />
+            
+            <rect x="34" y="19" width="32" height="3" />
+            <rect x="36" y="16" width="28" height="3" />
+            <rect x="39" y="13" width="22" height="3" />
+            <rect x="44" y="10" width="12" height="3" />
           </g>
-          <text x="50" y="64" fontFamily="'Inter', sans-serif" fontWeight="900" fontSize="9.5" fill="#000" textAnchor="middle" letterSpacing="0.5">YAMAHA</text>
+
+          {/* Brown text box */}
+          <rect x="15" y="47" width="70" height="26" fill="#5d251d" rx="2" />
+          <rect x="17" y="49" width="66" height="22" fill="none" stroke="#ffffff" strokeWidth="0.8" rx="1" />
+          
+          <text 
+            x="50" 
+            y="59" 
+            fontFamily="'Montserrat', 'Arial Black', sans-serif" 
+            fontWeight="900" 
+            fontSize="9.5" 
+            fill="#ffffff" 
+            textAnchor="middle" 
+            letterSpacing="0.8"
+          >
+            INDIA
+          </text>
+          <text 
+            x="50" 
+            y="68" 
+            fontFamily="'Montserrat', 'Arial Black', sans-serif" 
+            fontWeight="900" 
+            fontSize="9.5" 
+            fill="#ffffff" 
+            textAnchor="middle" 
+            letterSpacing="1"
+          >
+            GATE
+          </text>
+          
+          {/* PURE BASMATI RICE text */}
+          <text 
+            x="50" 
+            y="82" 
+            fontFamily="'Inter', sans-serif" 
+            fontWeight="700" 
+            fontSize="4.8" 
+            fill="#5d251d" 
+            textAnchor="middle" 
+            letterSpacing="0.8"
+          >
+            PURE BASMATI RICE
+          </text>
         </svg>
       );
-    case 'kapiva':
+    case 'joy':
       return (
-        <svg viewBox="0 0 100 40" className="w-10 h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="10" width="80" height="20" rx="3" fill="#151515" />
-          <text x="50" y="24" fontFamily="'Inter', sans-serif" fontWeight="900" fontSize="11.5" fill="#fff" textAnchor="middle" letterSpacing="1.2">KAPIVA</text>
+        <svg viewBox="0 0 100 100" className="w-[36px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Green leaf shape representing Joy brand */}
+          <path 
+            d="M 12 52 C 12 28, 35 14, 88 14 C 88 38, 65 52, 12 52 Z" 
+            fill="#0b7537" 
+          />
+          {/* Subtle curve outline beneath leaf */}
+          <path 
+            d="M 12 52 C 20 57, 45 57, 88 38" 
+            stroke="#b0bec5" 
+            strokeWidth="2.5" 
+            strokeLinecap="round"
+          />
+          {/* Elegant serif JOY text inside the leaf */}
+          <text
+            x="50"
+            y="41"
+            fontFamily="'Cinzel', 'Times New Roman', 'Georgia', serif"
+            fontWeight="700"
+            fontSize="19"
+            fill="#ffffff"
+            textAnchor="middle"
+            letterSpacing="1"
+          >
+            JOY
+          </text>
+          {/* Slogan "beautiful by nature" below leaf */}
+          <text
+            x="50"
+            y="70"
+            fontFamily="'Playfair Display', 'Georgia', serif"
+            fontStyle="italic"
+            fontWeight="600"
+            fontSize="8.5"
+            fill="#0b7537"
+            textAnchor="middle"
+            letterSpacing="0.2"
+          >
+            beautiful by nature
+          </text>
         </svg>
       );
-    case 'ikonic':
+    case 'tira':
       return (
-        <svg viewBox="0 0 100 80" className="w-10 h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="38,20 40,24 44,24 41,26 42,30 38,28 34,30 35,26 32,24 36,24" fill="#de0d40" />
-          <polygon points="50,15 52,19 56,19 53,21 54,25 50,23 46,25 47,21 44,19 48,19" fill="#de0d40" />
-          <polygon points="62,20 64,24 68,24 65,26 66,30 62,28 58,30 59,26 56,24 60,24" fill="#de0d40" />
-          <text x="50" y="52" fontFamily="'Inter', sans-serif" fontWeight="900" fontSize="12" fill="#091337" textAnchor="middle" letterSpacing="0.8">IKONIC</text>
+        <svg viewBox="0 0 100 100" className="w-[36px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Peach circular background */}
+          <circle cx="50" cy="50" r="48" fill="#FADCD5" />
+          {/* lowercase "tira" text in red */}
+          <text
+            x="50"
+            y="58"
+            fontFamily="'Comfortaa', 'Fredoka', 'Quicksand', 'Inter', sans-serif"
+            fontWeight="700"
+            fontSize="29"
+            fill="#E31C23"
+            textAnchor="middle"
+            letterSpacing="-0.8"
+          >
+            tira
+          </text>
+        </svg>
+      );
+    case 'maggi':
+      return (
+        <svg viewBox="0 0 100 100" className="w-[36px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Yellow rounded rectangle block */}
+          <rect x="5" y="12" width="90" height="76" rx="14" fill="#FFD200" />
+          {/* Red shield/heart-like shape */}
+          <path 
+            d="M 15 48 C 15 32, 32 24, 50 24 C 68 24, 85 32, 85 48 C 85 58, 68 64, 50 74 C 32 64, 15 58, 15 48 Z" 
+            fill="#d32f2f" 
+          />
+          {/* "Maggi" text in yellow */}
+          <text
+            x="50"
+            y="54"
+            fontFamily="'Arial Black', 'Impact', sans-serif"
+            fontWeight="900"
+            fontSize="17.5"
+            fill="#FFD200"
+            textAnchor="middle"
+            letterSpacing="-0.5"
+          >
+            Maggi
+          </text>
+        </svg>
+      );
+    case 'google gemini':
+    case 'googlegemini':
+    case 'gemini':
+      return (
+        <svg viewBox="0 0 100 100" className="w-[32px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gemini-grad" x1="15%" y1="15%" x2="85%" y2="85%">
+              <stop offset="0%" stopColor="#ff4e50" />
+              <stop offset="35%" stopColor="#fbc02d" />
+              <stop offset="70%" stopColor="#4caf50" />
+              <stop offset="100%" stopColor="#2196f3" />
+            </linearGradient>
+          </defs>
+          <path 
+            d="M 50 12 C 50 36, 64 50, 88 50 C 64 50, 50 64, 50 88 C 50 64, 36 50, 12 50 C 36 50, 50 36, 50 12 Z" 
+            fill="url(#gemini-grad)" 
+          />
+        </svg>
+      );
+    case 'flipkart minutes':
+    case 'flipkart-minutes':
+    case 'flipkartminutes':
+    case 'flipkart min':
+    case 'flipkartmin':
+      return (
+        <svg viewBox="0 0 100 100" className="w-[35px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Crimson circle background matching Flipkart Minutes */}
+          <circle cx="50" cy="50" r="48" fill="#95143a" />
+          {/* White bold italic "Flipkart" text */}
+          <text
+            x="50"
+            y="41"
+            fontFamily="'Inter', 'Arial', sans-serif"
+            fontWeight="800"
+            fontStyle="italic"
+            fontSize="12.5"
+            fill="#ffffff"
+            textAnchor="middle"
+            letterSpacing="-0.2"
+          >
+            Flipkart
+          </text>
+          {/* Yellow ultra-bold italic "MINUTES" text */}
+          <text
+            x="50"
+            y="64"
+            fontFamily="'Impact', 'Arial Black', sans-serif"
+            fontWeight="900"
+            fontStyle="italic"
+            fontSize="16.5"
+            fill="#FFE300"
+            textAnchor="middle"
+            letterSpacing="-0.4"
+          >
+            MINUTES
+          </text>
         </svg>
       );
     case 'boat':
@@ -291,8 +512,8 @@ const Hero = () => {
 
       <div className="max-w-[1300px] mx-auto px-6 pt-32 pb-16 lg:pt-40 lg:pb-24 flex flex-col lg:flex-row items-center gap-16 lg:gap-12 min-h-screen relative z-10">
 
-        {/* ─── LEFT COLUMN (55%) ─── */}
-        <div className="w-full lg:w-[55%] flex flex-col justify-center relative z-20">
+        {/* ─── LEFT COLUMN (48%) ─── */}
+        <div className="w-full lg:w-[48%] flex flex-col justify-center relative z-20">
 
           {/* Floating Glassmorphic Social Icons */}
           <FloatingSocialIcon Icon={FaInstagram} color="#e1306c" className="-top-10 -left-10 lg:-left-20" delay={0} />
@@ -327,7 +548,7 @@ const Hero = () => {
             className="text-[17px] sm:text-[19px] text-gray-300 font-normal leading-[1.65] max-w-[540px] mb-12 z-10"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            We align brands with strategic social media influencers to drive authentic reach, hyper-targeted brand visibility, and direct campaign conversion.
+            A smart and strategic company uncovering hidden opportunities for creators and connecting brands with exceptional talent✨🎀
           </motion.p>
 
           <motion.div {...fadeUp(0.7)} className="flex flex-wrap items-center gap-4 mb-16 z-10">
@@ -374,8 +595,8 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* ─── RIGHT COLUMN (45%) ─── */}
-        <div className="hidden lg:block w-full lg:w-[45%] h-[850px] relative">
+        {/* ─── RIGHT COLUMN (52%) ─── */}
+        <div className="hidden lg:block w-full lg:w-[52%] h-[850px] relative">
 
           {/* Vertical Fades */}
           <div className="absolute inset-0 z-20 pointer-events-none"
@@ -384,9 +605,10 @@ const Hero = () => {
             }}
           />
 
-          <div className="relative w-full h-full overflow-hidden flex gap-6 z-10 px-2">
+          <div className="relative w-full h-full overflow-hidden flex gap-4 z-10 px-2">
 
-            <div className="w-1/2 overflow-hidden relative">
+            {/* Column 1 */}
+            <div className="w-1/3 overflow-hidden relative">
               <div className="flex flex-col animate-marquee-vertical hover:[animation-play-state:paused]">
                 {[...col1Media, ...col1Media, ...col1Media].map((item, i) => (
                   <MediaCard key={`col1-${i}`} item={item} />
@@ -394,10 +616,20 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="w-1/2 overflow-hidden relative pt-16">
+            {/* Column 2 */}
+            <div className="w-1/3 overflow-hidden relative pt-20">
               <div className="flex flex-col animate-marquee-vertical-reverse hover:[animation-play-state:paused]">
-                {[...col2Media, ...col2Media, ...col2Media].map((item, i) => (
+                {[...col2Media, ...col2Media, ...col2Media, ...col2Media].map((item, i) => (
                   <MediaCard key={`col2-${i}`} item={item} />
+                ))}
+              </div>
+            </div>
+
+            {/* Column 3 */}
+            <div className="w-1/3 overflow-hidden relative pt-10">
+              <div className="flex flex-col animate-marquee-vertical hover:[animation-play-state:paused]">
+                {[...col3Media, ...col3Media, ...col3Media, ...col3Media].map((item, i) => (
+                  <MediaCard key={`col3-${i}`} item={item} />
                 ))}
               </div>
             </div>

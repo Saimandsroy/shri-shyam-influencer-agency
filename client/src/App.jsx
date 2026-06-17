@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './sections/Hero';
 import VideoReel from './sections/VideoReel';
+import BrandMarquee from './sections/BrandMarquee';
 import Services from './sections/Services';
 import InfluencerMarquee from './sections/InfluencerMarquee';
 import CaseStudies from './sections/CaseStudies';
@@ -17,38 +18,6 @@ import PlatformMarketing from './sections/PlatformMarketing';
 import RoiCalculator from './sections/RoiCalculator';
 import CampaignDashboard from './sections/CampaignDashboard';
 
-/* ─── Page Loader ─── */
-const Loader = ({ onComplete }) => {
-  useEffect(() => {
-    const timer = setTimeout(onComplete, 1500);
-    return () => clearTimeout(timer);
-  }, [onComplete]);
-
-  return (
-    <motion.div
-      key="loader"
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: 'easeInOut' }}
-      className="fixed inset-0 z-[200] bg-[#091337] flex flex-col items-center justify-center"
-    >
-      <motion.span
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="font-display text-[32px] font-bold text-[#ffc201] tracking-tight"
-      >
-        SSCA
-      </motion.span>
-      <motion.div
-        initial={{ width: 0 }}
-        animate={{ width: 48 }}
-        transition={{ duration: 1, delay: 0.3, ease: 'easeInOut' }}
-        className="h-[2px] bg-[#ffc201] mt-3 rounded-full"
-      />
-    </motion.div>
-  );
-};
 
 /* ─── Scroll-to-Top Button ─── */
 const ScrollToTop = () => {
@@ -83,7 +52,7 @@ const ScrollToTop = () => {
 const WhatsAppButton = () => {
   return (
     <a
-      href="https://wa.me/919060293631?text=Hi!%20I%20am%20interested%20in%20launching%20an%20influencer%20campaign%20with%20SSCA."
+      href="https://wa.me/919060293631?text=Hi!%20I%20am%20interested%20in%20launching%20an%20influencer%20campaign%20with%20The%20Hidden%20Fox%20Co."
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 bg-[#25d366] text-white rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all duration-300 hover:scale-105 group border border-white/10"
@@ -99,39 +68,25 @@ const WhatsAppButton = () => {
 
 /* ─── App ─── */
 function App() {
-  const [loading, setLoading] = useState(true);
-
   return (
-    <>
-      <AnimatePresence mode="wait">
-        {loading && <Loader onComplete={() => setLoading(false)} />}
-      </AnimatePresence>
-
-      {!loading && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="min-h-screen"
-        >
-          <Navbar />
-          <Hero />
-          <VideoReel />
-          <Services />
-          <WhyChooseUs />
-          <PlatformMarketing />
-          <InfluencerMarquee />
-          <RoiCalculator />
-          <CampaignDashboard />
-          <CaseStudies />
-          <Testimonials />
-          <Contact />
-          <Footer />
-          <ScrollToTop />
-          <WhatsAppButton />
-        </motion.div>
-      )}
-    </>
+    <div className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <VideoReel />
+      <BrandMarquee />
+      <Services />
+      <WhyChooseUs />
+      <PlatformMarketing />
+      <InfluencerMarquee />
+      <RoiCalculator />
+      <CampaignDashboard />
+      <CaseStudies />
+      <Testimonials />
+      <Contact />
+      <Footer />
+      <ScrollToTop />
+      <WhatsAppButton />
+    </div>
   );
 }
 

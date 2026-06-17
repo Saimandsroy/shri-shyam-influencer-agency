@@ -38,13 +38,27 @@ const Navbar = () => {
         <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3">
-            <img src="/image%20copy.png" alt="SSCA Logo" className="w-9 h-9 flex-shrink-0" />
+            <img src="/image%20copy.png" alt="The Hidden Fox Co. Logo" className="w-9 h-9 flex-shrink-0" />
             <div className="flex flex-col">
-              <span className="font-display text-[22px] font-bold text-white leading-none tracking-tight">
-                SSCA
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="font-display text-[22px] font-bold text-white leading-none tracking-tight">
+                  The Hidden Fox Co.
+                </span>
+                <div className="relative group flex-shrink-0">
+                  <img 
+                    src="/ceo.jpg" 
+                    alt="CEO / Owner" 
+                    className="w-7 h-7 rounded-full object-cover border-2 border-[#ffc201] hover:border-[#de0d40] transition-colors duration-300 shadow-[0_0_8px_rgba(255,194,1,0.3)]" 
+                  />
+                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-[#091337] rounded-full"></span>
+                  {/* Tooltip to identify CEO/Owner */}
+                  <span className="absolute left-1/2 -translate-x-1/2 -bottom-8 bg-[#091337] text-white text-[10px] py-0.5 px-2 rounded border border-[rgba(255,255,255,0.1)] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+                    CEO & Owner
+                  </span>
+                </div>
+              </div>
               <span className="font-label text-[9px] text-[#ffc201] tracking-[0.15em] mt-0.5">
-                Sri Shyam Campaigning Agency
+                Influencer Marketing Agency
               </span>
             </div>
           </a>
@@ -69,7 +83,7 @@ const Navbar = () => {
               href="#contact"
               className="hidden sm:inline-block bg-gradient-to-r from-[#de0d40] to-[#ff2a5f] text-white font-body text-[12px] font-semibold px-[22px] py-[10px] rounded-md hover:shadow-[0_4px_15px_rgba(222,13,64,0.3)] transition-all duration-300"
             >
-              Get Free Proposal
+              Contact Us
             </a>
 
             {/* Mobile hamburger */}
@@ -97,8 +111,18 @@ const Navbar = () => {
             {/* Close button */}
             <div className="flex justify-between items-center px-6 py-4 border-b border-[rgba(255,255,255,0.06)]">
               <div className="flex items-center gap-2">
-                <img src="/image%20copy.png" alt="SSCA Logo" className="w-8 h-8" />
-                <span className="font-display text-[22px] font-bold text-white">SSCA</span>
+                <img src="/image%20copy.png" alt="The Hidden Fox Co. Logo" className="w-8 h-8" />
+                <div className="flex items-center gap-2">
+                  <span className="font-display text-[22px] font-bold text-white leading-none">The Hidden Fox Co.</span>
+                  <div className="relative flex-shrink-0">
+                    <img 
+                      src="/ceo.jpg" 
+                      alt="CEO / Owner" 
+                      className="w-7 h-7 rounded-full object-cover border-2 border-[#ffc201]" 
+                    />
+                    <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-[#091337] rounded-full"></span>
+                  </div>
+                </div>
               </div>
               <button
                 onClick={() => setMobileOpen(false)}
@@ -133,7 +157,7 @@ const Navbar = () => {
                 onClick={() => setMobileOpen(false)}
                 className="block w-full text-center bg-gradient-to-r from-[#de0d40] to-[#ff2a5f] text-white font-body text-[13px] font-medium py-4 rounded-md hover:shadow-lg transition-colors"
               >
-                Get Free Proposal
+                Contact Us
               </a>
             </div>
           </motion.div>

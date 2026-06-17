@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 const testimonials = [
-  { quote: 'Sri Shyam agency delivered 10x ROI on our Diwali campaign. Their influencer matching is unmatched in India.', name: 'Rohit Sharma', role: 'CMO, StyleBazaar', rating: 5 },
+  { quote: 'The Hidden Fox Co. delivered 10x ROI on our Diwali campaign. Their influencer matching is unmatched in India.', name: 'Rohit Sharma', role: 'CMO, StyleBazaar', rating: 5 },
   { quote: 'The team understood our brand voice and found creators who genuinely loved our product. Sales doubled in 3 weeks.', name: 'Priya Mehta', role: 'Founder, GlowUp Cosmetics', rating: 5 },
   { quote: 'Transparent reporting, strong creator relationships, and results that exceeded every KPI. Will work again!', name: 'Aakash Gupta', role: 'Marketing Head, TechGadgetsIN', rating: 5 },
   { quote: 'From nano to celebrity — they have it all. Our reach went from 1M to 15M in a single month.', name: 'Sneha Kapoor', role: 'Brand Manager, FoodieFirst', rating: 5 },

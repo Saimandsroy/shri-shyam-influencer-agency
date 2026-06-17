@@ -164,7 +164,7 @@ const CampaignDashboard = () => {
             
             <div className="flex items-center gap-3">
               <span className="font-label text-[9px] bg-white/5 border border-white/10 text-white rounded-lg px-3 py-1 font-bold">
-                SSCA CAMPAIGN ID: {campaign.id.toUpperCase()}-2024
+                THE HIDDEN FOX CO. CAMPAIGN ID: {campaign.id.toUpperCase()}-2024
               </span>
               <div className="flex items-center gap-1 text-[11px] text-green-400 font-bold bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">
                 <FiActivity size={12} className="animate-pulse" /> Live Tracking

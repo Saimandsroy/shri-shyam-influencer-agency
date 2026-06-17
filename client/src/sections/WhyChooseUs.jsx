@@ -78,7 +78,7 @@ const WhyChooseUs = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-[16px] text-gray-300 font-normal leading-[1.6]"
           >
-            Sri Shyam Campaigning Agency bridges the gap between creative storytelling and hard analytical ROI. Here is why India&apos;s fastest-growing businesses choose us:
+            The Hidden Fox Co. bridges the gap between creative storytelling and hard analytical ROI. Here is why India&apos;s fastest-growing businesses choose us:
           </motion.p>
         </div>
 

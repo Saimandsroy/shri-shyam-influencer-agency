@@ -21,11 +21,21 @@ const Footer = () => {
           {/* Col 1: Brand */}
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <img src="/image%20copy.png" alt="SSCA Logo" className="w-10 h-10 flex-shrink-0" />
+              <img src="/image%20copy.png" alt="The Hidden Fox Co. Logo" className="w-10 h-10 flex-shrink-0" />
               <div className="flex flex-col">
-                <span className="font-display text-[22px] font-bold text-white leading-none">SSCA</span>
-                <p className="font-label text-[9px] text-[#ffc201] tracking-[0.15em] mt-1">
-                  Sri Shyam Campaigning Agency
+                <div className="flex items-center gap-2">
+                  <span className="font-display text-[22px] font-bold text-white leading-none">The Hidden Fox Co.</span>
+                  <div className="relative flex-shrink-0">
+                    <img 
+                      src="/ceo.jpg" 
+                      alt="CEO / Owner" 
+                      className="w-7 h-7 rounded-full object-cover border-2 border-[#ffc201]" 
+                    />
+                    <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-[#091337] rounded-full"></span>
+                  </div>
+                </div>
+                <p className="font-label text-[9px] text-[#ffc201] tracking-[0.15em] mt-1.5">
+                  Influencer Marketing Agency
                 </p>
               </div>
             </div>
@@ -80,8 +90,8 @@ const Footer = () => {
             <div className="space-y-3 mb-6">
               <p className="font-body text-[13px] text-gray-400">Patna, Bihar, India</p>
               <p className="font-body text-[13px] text-gray-400">
-                <a href="mailto:patnerships@thereachroots.com" className="hover:text-white transition-colors duration-300">
-                  patnerships@thereachroots.com
+                <a href="mailto:partnerships@thehiddenfoxco.com" className="hover:text-white transition-colors duration-300">
+                  partnerships@thehiddenfoxco.com
                 </a>
               </p>
               <p className="font-body text-[13px] text-gray-400">
@@ -102,7 +112,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-[rgba(255,255,255,0.06)] pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="font-label text-[11px] text-gray-500">
-            © 2026 Sri Shyam Campaigning Agency. All rights reserved.
+            © 2026 The Hidden Fox Co. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="font-label text-[11px] text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>

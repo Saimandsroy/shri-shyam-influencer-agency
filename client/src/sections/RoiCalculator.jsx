@@ -121,7 +121,7 @@ const RoiCalculator = () => {
     const contactMessageTextarea = document.querySelector('textarea[name="message"]');
     const nicheName = nicheOptions.find((n) => n.id === selectedNiche)?.name || 'General';
     if (contactMessageTextarea) {
-      contactMessageTextarea.value = `Hi SSCA team! I estimated a campaign ROI proposal using your calculator: Niche: ${nicheName}, Platform Focus: ${selectedPlatform.toUpperCase()}, Budget: ${formatCurrency(budget)}. Let's build a customized pitch!`;
+      contactMessageTextarea.value = `Hi The Hidden Fox Co. team! I estimated a campaign ROI proposal using your calculator: Niche: ${nicheName}, Platform Focus: ${selectedPlatform.toUpperCase()}, Budget: ${formatCurrency(budget)}. Let's build a customized pitch!`;
     }
 
     // Scroll to contact form
@@ -157,7 +157,7 @@ const RoiCalculator = () => {
             Calculate Your Campaign <span className="text-[#ffc201]">ROI & Reach</span>
           </motion.h2>
           <p className="text-[15px] text-gray-300 max-w-xl mx-auto">
-            Input your budget and marketing goals to see real-time forecasts of views, engagement, and conversion revenue based on historical SSCA campaign indexes.
+            Input your budget and marketing goals to see real-time forecasts of views, engagement, and conversion revenue based on historical The Hidden Fox Co. campaign indexes.
           </p>
         </div>
 

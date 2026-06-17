@@ -20,31 +20,23 @@ const tiers = [
 ];
 
 const creatorsDb = [
-  { name: 'Kavya Singhania', niche: 'beauty', platform: 'Instagram', followers: '840K', engagement: '5.8%', tier: 'mega', reach: '450K', image: '/WhatsApp Image 2026-06-10 at 10.39.18.jpeg', handle: '@kavya.styles' },
-  { name: 'Megha Goel', niche: 'beauty', platform: 'Instagram', followers: '620K', engagement: '6.2%', tier: 'mega', reach: '380K', image: '/WhatsApp Image 2026-06-10 at 10.39.18 (1).jpeg', handle: '@meghagoel_tales' },
-  { name: 'Rohan Verma', niche: 'beauty', platform: 'YouTube', followers: '1.2M', engagement: '4.9%', tier: 'mega', reach: '680K', image: '/WhatsApp Image 2026-06-10 at 10.39.18 (2).jpeg', handle: 'Rohan Style Vlogs' },
-  { name: 'Ananya Sen', niche: 'beauty', platform: 'Instagram', followers: '85K', engagement: '8.4%', tier: 'micro', reach: '60K', image: '', handle: '@ananya_sensations' },
-  { name: 'Ishaan Kapoor', niche: 'beauty', platform: 'Instagram', followers: '240K', engagement: '7.1%', tier: 'mid', reach: '180K', image: '', handle: '@ishaan.threads' },
+  { name: 'Jyoti Upadhyay', niche: 'beauty', platform: 'Instagram', followers: '50K', engagement: '7.6%', tier: 'micro', reach: '38K', image: '/jyoti_cropped.png', handle: '@jyoti_upadhyay' },
+  { name: 'Ashutosh Dubey', niche: 'beauty', platform: 'Instagram', followers: '834K', engagement: '6.7%', tier: 'mega', reach: '480K', image: '/ashutosh.jpg', handle: '@ashutosh_dubey' },
+  { name: 'Pratham', niche: 'beauty', platform: 'Instagram', followers: '437K', engagement: '8.1%', tier: 'mid', reach: '280K', image: '/pratham.png', handle: '@pratham_official' },
+  { name: 'Shivi Chaudhary', niche: 'beauty', platform: 'Instagram', followers: '20K', engagement: '9.2%', tier: 'micro', reach: '14K', image: '/shivi.png', handle: '@shivi_chaudhary' },
+  { name: 'Surbhi Singh', niche: 'beauty', platform: 'Instagram', followers: '6K', engagement: '10.5%', tier: 'micro', reach: '4.2K', image: '/surbhi.jpg', handle: '@surbhi_singh' },
+  { name: 'Naina Juneja', niche: 'beauty', platform: 'Instagram', followers: '7K', engagement: '9.8%', tier: 'micro', reach: '4.5K', image: '/naina.jpg', handle: '@naina_juneja' },
+  { name: 'Dr. Priyadarsini Sinha', niche: 'beauty', platform: 'Instagram', followers: '26K', engagement: '8.4%', tier: 'micro', reach: '18K', image: '/priya.jpg', handle: '@dr_priyadarsini' },
+  { name: 'Bhoomi Sharma', niche: 'beauty', platform: 'Instagram', followers: '3M', engagement: '7.5%', tier: 'mega', reach: '1.8M', image: '/bhoomi.jpg', handle: '@bhoomi_sharma' },
+  { name: 'Alishaa rajput', niche: 'beauty', platform: 'Instagram', followers: '5M', engagement: '8.2%', tier: 'mega', reach: '3.1M', image: '/alishaa.png', handle: '@alishaa_rajput' },
+  { name: 'Mihir', niche: 'beauty', platform: 'Instagram', followers: '1M', engagement: '7.9%', tier: 'mega', reach: '680K', image: '/mihir.png', handle: '@mihir' },
 
-  { name: 'Shlok Srivastava', niche: 'tech', platform: 'YouTube', followers: '3.4M', engagement: '6.5%', tier: 'mega', reach: '1.8M', image: '/WhatsApp Image 2026-06-10 at 10.39.19.jpeg', handle: 'Tech Burner' },
-  { name: 'Amit Kumar', niche: 'tech', platform: 'YouTube', followers: '1.8M', engagement: '5.2%', tier: 'mega', reach: '950K', image: '/WhatsApp Image 2026-06-10 at 10.39.19 (1).jpeg', handle: 'Amit Unboxes' },
-  { name: 'Sanjana Tech', niche: 'tech', platform: 'Twitter', followers: '250K', engagement: '8.1%', tier: 'mid', reach: '150K', image: '', handle: '@sanjana_bytes' },
-  { name: 'Harish Nair', niche: 'tech', platform: 'YouTube', followers: '95K', engagement: '9.2%', tier: 'micro', reach: '75K', image: '', handle: 'Harish Code Lab' },
-
-  { name: 'Fin Wealth (Raj)', niche: 'finance', platform: 'YouTube', followers: '2.1M', engagement: '4.8%', tier: 'mega', reach: '1.2M', image: '/WhatsApp Image 2026-06-10 at 10.39.19 (2).jpeg', handle: 'Fin Wealth' },
-  { name: 'CA Rohan', niche: 'finance', platform: 'LinkedIn', followers: '400K', engagement: '9.5%', tier: 'mid', reach: '280K', image: '', handle: 'in/ca-rohan-sharma' },
-  { name: 'Priya Stocks', niche: 'finance', platform: 'Instagram', followers: '580K', engagement: '5.9%', tier: 'mega', reach: '320K', image: '', handle: '@invest_with_priya' },
-  { name: 'Akshat Jain', niche: 'finance', platform: 'YouTube', followers: '78K', engagement: '7.3%', tier: 'micro', reach: '45K', image: '', handle: 'Finance With Akshat' },
-
-  { name: 'Alpha Gamer', niche: 'gaming', platform: 'YouTube', followers: '6.2M', engagement: '8.2%', tier: 'mega', reach: '4.5M', image: '/WhatsApp Image 2026-06-10 at 10.39.20.jpeg', handle: 'Alpha Gaming Live' },
-  { name: 'Streamer Girl', niche: 'gaming', platform: 'YouTube', followers: '2.4M', engagement: '7.8%', tier: 'mega', reach: '1.5M', image: '', handle: 'Nisha Streams' },
-  { name: 'Esport Pro', niche: 'gaming', platform: 'YouTube', followers: '1.5M', engagement: '6.1%', tier: 'mega', reach: '900K', image: '', handle: 'Viper Esports' },
-  { name: 'Vikas Plays', niche: 'gaming', platform: 'YouTube', followers: '450K', engagement: '9.8%', tier: 'mid', reach: '350K', image: '', handle: 'Vikas Plays' },
-
-  { name: 'Foodie Explorer', niche: 'food', platform: 'Instagram', followers: '980K', engagement: '6.8%', tier: 'mega', reach: '520K', image: '', handle: '@delhifoodie_explorer' },
-  { name: 'Nomad Traveler', niche: 'food', platform: 'YouTube', followers: '1.1M', engagement: '5.4%', tier: 'mega', reach: '620K', image: '', handle: 'Kabir Vlogs' },
-  { name: 'Chef Sanjeev', niche: 'food', platform: 'Instagram', followers: '450K', engagement: '7.3%', tier: 'mid', reach: '310K', image: '', handle: '@chef_sanjeev_recipes' },
-  { name: 'Tanya Vlogs', niche: 'food', platform: 'Instagram', followers: '62K', engagement: '11.2%', tier: 'micro', reach: '50K', image: '', handle: '@tanya_nomadic' }
+  { name: 'Techoob', niche: 'tech', platform: 'YouTube', followers: '2M', engagement: '5.8%', tier: 'mega', reach: '1.2M', image: '/techoob.png', handle: 'Techoob' },
+  { name: 'Dilip Sahani', niche: 'tech', platform: 'Instagram', followers: '326K', engagement: '7.3%', tier: 'mid', reach: '210K', image: '/dilip.png', handle: '@dilip_sahani' },
+  { name: 'Manjeet Yadav', niche: 'tech', platform: 'Instagram', followers: '562K', engagement: '8.4%', tier: 'mega', reach: '340K', image: '/manjeet.png', handle: '@manjeet_yadav' },
+  { name: 'Uraj kumar', niche: 'tech', platform: 'YouTube', followers: '27K', engagement: '8.1%', tier: 'micro', reach: '18K', image: '/uraj.png', handle: 'Uraj Tech' },
+  { name: 'Shubham kumar', niche: 'tech', platform: 'YouTube', followers: '23K', engagement: '9.2%', tier: 'micro', reach: '15K', image: '/shubham.png', handle: 'Shubham Tech' },
+  { name: 'Saaquib Neyazi', niche: 'tech', platform: 'Instagram', followers: '333K', engagement: '7.8%', tier: 'mid', reach: '210K', image: '/saaquib.jpg', handle: '@saaquib_neyazi' },
 ];
 
 const rowNiches = [
@@ -118,7 +110,11 @@ const InfluencerMarquee = () => {
   };
 
   return (
-    <section id="influencers" className="bg-white py-20 lg:py-28 overflow-hidden text-[#091337] relative">
+    <section id="influencers" className="bg-[#f6faff] py-20 lg:py-28 overflow-hidden text-[#091337] relative">
+      {/* Background glow blobs */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,rgba(80,78,216,0.06),transparent_55%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_70%,rgba(222,13,64,0.04),transparent_55%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,194,1,0.03),transparent_50%)] pointer-events-none" />
       <div className="max-w-[1200px] mx-auto px-6">
         
         {/* Header */}
@@ -126,7 +122,7 @@ const InfluencerMarquee = () => {
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="font-label text-[12px] text-[#de0d40] tracking-[0.15em] mb-4 block"
+            className="font-label text-[12px] text-[#504ed8] tracking-[0.15em] mb-4 block font-bold"
           >
             CREATOR NETWORK DIRECTORY
           </motion.span>
@@ -134,17 +130,17 @@ const InfluencerMarquee = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[32px] sm:text-[40px] lg:text-[48px] font-semibold tracking-tight text-center"
+            className="text-[32px] sm:text-[40px] lg:text-[48px] font-semibold tracking-tight text-center text-[#091337]"
           >
             30,000+ Vetted Creators at Your Fingertips
           </motion.h2>
-          <p className="text-[15px] text-gray-500 max-w-2xl mx-auto mt-4">
+          <p className="text-[15px] text-gray-600 max-w-2xl mx-auto mt-4 font-body">
             Search, filter, and draft your dream campaign squad. Add creators to your list and directly request a campaign proposal with them.
           </p>
         </div>
 
         {/* Filter Toolbar Card */}
-        <div className="bg-gray-50 border border-gray-100 rounded-3xl p-6 lg:p-8 mb-10 shadow-[0_10px_40px_rgba(9,19,55,0.03)] space-y-6">
+        <div className="bg-white/80 backdrop-blur-md border border-[rgba(9,19,55,0.08)] rounded-3xl p-6 lg:p-8 mb-10 shadow-[0_10px_35px_rgba(9,19,55,0.05)] space-y-6">
           
           {/* Top Row: Search & Tier selector */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -158,7 +154,7 @@ const InfluencerMarquee = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search creator name or handle..."
-                className="w-full bg-white border border-gray-200/80 rounded-full pl-11 pr-5 py-3 text-[14px] text-[#091337] placeholder-gray-400 focus:border-[#504ed8] focus:outline-none transition-colors shadow-sm"
+                className="w-full bg-[#f6faff] border border-[rgba(9,19,55,0.12)] rounded-full pl-11 pr-5 py-3 text-[14px] text-[#091337] placeholder-gray-400 focus:border-[#504ed8] focus:bg-white focus:outline-none transition-colors shadow-sm"
               />
               {searchQuery && (
                 <button
@@ -172,15 +168,15 @@ const InfluencerMarquee = () => {
 
             {/* Tier filter pill buttons */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
-              <span className="font-label text-[10px] text-gray-400 font-bold mr-2 whitespace-nowrap">TIERS:</span>
+              <span className="font-label text-[10px] text-gray-500 font-bold mr-2 whitespace-nowrap tracking-wider">TIERS:</span>
               {tiers.map((t) => (
                 <button
                   key={t.id}
                   onClick={() => setActiveTier(t.id)}
                   className={`px-4 py-2 rounded-full font-label text-[10px] font-semibold transition-all border whitespace-nowrap ${
                     activeTier === t.id
-                      ? 'bg-[#504ed8] text-white border-[#504ed8] shadow-sm'
-                      : 'bg-white text-gray-500 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-[#504ed8] text-white border-[#504ed8] shadow-[0_4px_12px_rgba(80,78,216,0.2)]'
+                      : 'bg-[#f6faff] text-gray-600 border-[rgba(9,19,55,0.08)] hover:bg-gray-100 hover:text-[#091337]'
                   }`}
                 >
                   {t.name}
@@ -190,7 +186,7 @@ const InfluencerMarquee = () => {
           </div>
 
           {/* Bottom Row: Niche Categories tabs */}
-          <div className="border-t border-gray-200/50 pt-5">
+          <div className="border-t border-[rgba(9,19,55,0.08)] pt-5">
             <div className="flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-none">
               {categories.map((cat) => (
                 <button
@@ -198,8 +194,8 @@ const InfluencerMarquee = () => {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`flex items-center gap-2 px-5 py-3 rounded-full font-label text-[11px] font-semibold border transition-all duration-300 flex-shrink-0 ${
                     activeCategory === cat.id
-                      ? 'bg-[#091337] text-[#ffc201] border-[#091337] shadow-md'
-                      : 'bg-white text-gray-500 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gradient-to-r from-[#de0d40] to-[#504ed8] text-white border-transparent shadow-[0_4px_15px_rgba(222,13,64,0.25)]'
+                      : 'bg-white text-gray-600 border-[rgba(9,19,55,0.08)] hover:bg-[#f6faff] hover:text-[#091337]'
                   }`}
                 >
                   <span>{cat.emoji}</span>
@@ -216,7 +212,7 @@ const InfluencerMarquee = () => {
             <div className="flex flex-col items-center justify-center py-20 text-center">
               <span className="text-[40px] mb-4">🔍</span>
               <h3 className="text-[18px] font-semibold text-[#091337]">No creators found</h3>
-              <p className="text-[14px] text-gray-400 mt-1">Try resetting your filters or adjusting your search term.</p>
+              <p className="text-[14px] text-gray-500 mt-1">Try resetting your filters or adjusting your search term.</p>
             </div>
           ) : (
             <motion.div
@@ -234,13 +230,13 @@ const InfluencerMarquee = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.3 }}
-                      className={`group bg-white border rounded-2xl p-5 hover:shadow-[0_15px_30px_rgba(9,19,55,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between ${
-                        isDrafted ? 'border-[#504ed8] ring-1 ring-[#504ed8]/30 shadow-sm' : 'border-gray-200/70'
+                      className={`group bg-white border rounded-2xl p-5 hover:shadow-[0_15px_40px_rgba(9,19,55,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between ${
+                        isDrafted ? 'border-[#504ed8] ring-1 ring-[#504ed8]/30 shadow-[0_0_20px_rgba(80,78,216,0.15)]' : 'border-[rgba(9,19,55,0.08)] hover:border-[rgba(9,19,55,0.2)]'
                       }`}
                     >
                       <div>
                         {/* Profile Image / Initials Block */}
-                        <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-[#0f1634] to-[#091337] flex items-center justify-center">
+                        <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-[#f6faff] to-[#eef4fc] flex items-center justify-center border border-[rgba(9,19,55,0.06)]">
                           {creator.image ? (
                             <img
                               src={creator.image}
@@ -248,7 +244,7 @@ const InfluencerMarquee = () => {
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                           ) : (
-                            <span className="text-[28px] font-bold text-white tracking-widest uppercase">
+                            <span className="text-[28px] font-bold text-[#091337] tracking-widest uppercase">
                               {getInitials(creator.name)}
                             </span>
                           )}
@@ -265,19 +261,19 @@ const InfluencerMarquee = () => {
                         </div>
 
                         {/* Creator Info */}
-                        <h4 className="text-[16px] font-bold text-[#091337] group-hover:text-[#de0d40] transition-colors">
+                        <h4 className="text-[16px] font-bold text-[#091337] group-hover:text-[#504ed8] transition-colors">
                           {creator.name}
                         </h4>
-                        <p className="text-[12px] text-gray-400 mt-0.5 mb-4">{creator.handle}</p>
+                        <p className="text-[12px] text-gray-500 mt-0.5 mb-4">{creator.handle}</p>
 
                         {/* Mini statistics list */}
-                        <div className="grid grid-cols-2 gap-2 border-t border-b border-gray-100 py-3 mb-5">
+                        <div className="grid grid-cols-2 gap-2 border-t border-b border-[rgba(9,19,55,0.06)] py-3 mb-5">
                           <div>
-                            <span className="font-label text-[8px] text-gray-400 block tracking-wider uppercase">Followers</span>
+                            <span className="font-label text-[8px] text-gray-500 block tracking-wider uppercase">Followers</span>
                             <span className="text-[15px] font-bold text-[#091337]">{creator.followers}</span>
                           </div>
                           <div>
-                            <span className="font-label text-[8px] text-gray-400 block tracking-wider uppercase">Engagement</span>
+                            <span className="font-label text-[8px] text-gray-500 block tracking-wider uppercase">Engagement</span>
                             <span className="text-[15px] font-bold text-[#de0d40]">{creator.engagement}</span>
                           </div>
                         </div>
@@ -288,8 +284,8 @@ const InfluencerMarquee = () => {
                         onClick={() => toggleDraft(creator)}
                         className={`w-full py-2.5 rounded-xl text-[12px] font-semibold flex items-center justify-center gap-1.5 transition-all border ${
                           isDrafted
-                            ? 'bg-[#504ed8] text-white border-[#504ed8] hover:bg-[#4341c2]'
-                            : 'bg-gray-50 text-gray-600 border-gray-200/80 hover:bg-gray-100 hover:text-[#091337]'
+                            ? 'bg-[#504ed8] text-white border-[#504ed8] hover:bg-[#4341c2] shadow-[0_4px_12px_rgba(80,78,216,0.2)]'
+                            : 'bg-[#f6faff] text-gray-600 border-[rgba(9,19,55,0.08)] hover:bg-[#504ed8] hover:text-white hover:border-[#504ed8]'
                         }`}
                       >
                         {isDrafted ? (
@@ -315,17 +311,17 @@ const InfluencerMarquee = () => {
       </div>
 
       {/* Infinite scrolling niche marquee at bottom */}
-      <div className="border-t border-b border-gray-100 py-6 overflow-hidden bg-gray-50/50 mt-20">
+      <div className="border-t border-b border-[rgba(9,19,55,0.06)] py-6 overflow-hidden bg-[#eef4fc]/80 mt-20">
         <div className="flex gap-4 animate-marquee whitespace-nowrap" style={{ width: 'max-content' }}>
           {[...rowNiches, ...rowNiches].map((item, i) => (
             <div
               key={i}
-              className="flex-shrink-0 bg-white border border-gray-200/80 rounded-full px-6 py-3 min-w-[170px] flex items-center gap-3 shadow-sm"
+              className="flex-shrink-0 bg-white border border-[rgba(9,19,55,0.08)] rounded-full px-6 py-3 min-w-[170px] flex items-center gap-3 shadow-sm hover:border-[#504ed8]/40 transition-colors"
             >
               <span className="text-[20px]">{item.emoji}</span>
               <div>
                 <p className="text-[13px] font-bold text-[#091337] leading-none">{item.name}</p>
-                <p className="font-label text-[9px] text-gray-400 mt-0.5">{item.count}</p>
+                <p className="font-label text-[9px] text-gray-500 mt-0.5">{item.count}</p>
               </div>
             </div>
           ))}

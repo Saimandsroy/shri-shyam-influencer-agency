@@ -10,7 +10,7 @@ const Home = () => {
         transition={{ duration: 0.8 }}
         className="text-5xl font-display font-bold text-brand dark:text-brand mb-4 text-center"
       >
-        Sri Shyam Campaigning Agency
+        The Hidden Fox Co.
       </motion.h1>
       <motion.p 
         initial={{ opacity: 0 }}
