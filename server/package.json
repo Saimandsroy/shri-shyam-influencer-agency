@@ -1,7 +1,7 @@
 {
-  "name": "sri-shyam-agency-server",
+  "name": "the-hidden-fox-co-server",
   "version": "1.0.0",
-  "description": "Backend for Sri Shyam Campaigning Agency",
+  "description": "Backend for The Hidden Fox Co.",
   "main": "index.js",
   "type": "module",
   "scripts": {

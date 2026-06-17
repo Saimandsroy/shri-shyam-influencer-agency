@@ -1,4 +1,4 @@
-# Sri Shyam Campaigning Agency
+# The Hidden Fox Co.
 
 Modern React + Node.js application for an influencer marketing agency.
 
