@@ -115,12 +115,12 @@ const CaseStudyVideo = ({ src, poster, inViewport, onView }) => {
     >
       <video
         ref={videoRef}
-        src={hasIntersected ? src : ""}
+        src={`${src}#t=0.001`} // Appending #t=0.001 ensures the first frame is loaded as a poster in Safari/iOS
         poster={poster}
         muted
         loop
         playsInline
-        preload="none"
+        preload="metadata" // Load metadata to show the first frame immediately
         className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
       />
       {/* Hover play overlay */}

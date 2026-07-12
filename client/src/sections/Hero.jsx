@@ -463,24 +463,12 @@ const BrandLogo = ({ brand }) => {
   }
 };
 
-/* ─── Premium Sleek Media Card with Floating Brand Logo Badge ─── */
 const MediaCard = ({ item, index, originalLength, isHeroVisible }) => {
-  // Only the original items load immediately. Clones are staggered.
-  const [hasIntersected, setHasIntersected] = useState(index < originalLength);
+  // User requested all videos in the ribbon to show at once, so we load them all immediately
+  const [hasIntersected, setHasIntersected] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const videoRef = useRef(null);
-
-  // Staggered loading for cloned items so we don't fetch 36 videos at once on page load
-  useEffect(() => {
-    if (!hasIntersected) {
-      const delay = 1500 + (index * 200);
-      const timer = setTimeout(() => {
-        setHasIntersected(true);
-      }, delay);
-      return () => clearTimeout(timer);
-    }
-  }, [index, hasIntersected]);
 
   // Play or pause based on whether the entire Hero section is in the viewport
   useEffect(() => {
