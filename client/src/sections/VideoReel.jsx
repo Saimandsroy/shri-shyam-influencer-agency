@@ -133,11 +133,11 @@ const VideoCard = ({ campaign, isPortrait = false, onView }) => {
 
       <video
         ref={setRefs}
-        src={hasIntersected ? campaign.src : ""}
+        src={`${campaign.src}#t=0.001`}
         muted
         loop
         playsInline
-        preload="none"
+        preload="metadata"
         onLoadedData={() => setIsLoading(false)}
         onError={() => {
           setIsLoading(false);

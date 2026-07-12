@@ -509,11 +509,11 @@ const MediaCard = ({ item, index, originalLength, isHeroVisible }) => {
         {/* Video Element */}
         <video
           ref={videoRef}
-          src={hasIntersected ? item.src : ""} 
+          src={hasIntersected ? `${item.src}#t=0.001` : ""} 
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           onLoadedData={() => setIsLoading(false)}
           onError={() => {
             setIsLoading(false);
