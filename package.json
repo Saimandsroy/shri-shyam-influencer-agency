@@ -1,0 +1,8 @@
+{
+  "name": "sri-shyam-agency-root",
+  "version": "1.0.0",
+  "description": "Root package for Cloudflare deployment",
+  "scripts": {
+    "build": "cd client && npm install && npm run build"
+  }
+}
