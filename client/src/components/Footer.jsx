@@ -21,7 +21,7 @@ const Footer = () => {
           {/* Col 1: Brand */}
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <img src="/image%20copy.png" alt="The Hidden Fox Co. Logo" className="w-10 h-10 flex-shrink-0" />
+              <img src="/image%20copy.png" alt="The Hidden Fox Co. Logo" loading="lazy" decoding="async" className="w-10 h-10 flex-shrink-0" />
               <div className="flex flex-col">
                 <div className="flex items-center gap-2">
                   <span className="font-display text-[22px] font-bold text-white leading-none">The Hidden Fox Co.</span>

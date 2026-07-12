@@ -84,7 +84,8 @@ const VideoViewer = ({ src, title, onClose }) => {
 const VideoCard = ({ campaign, isPortrait = false, onView }) => {
   const videoRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  const { ref: inViewRef, inView } = useInView({ threshold: 0.4 });
+  const [hasIntersected, setHasIntersected] = useState(false);
+  const { ref: inViewRef, inView } = useInView({ threshold: 0.2 });
 
   const setRefs = (node) => {
     videoRef.current = node;
@@ -92,6 +93,9 @@ const VideoCard = ({ campaign, isPortrait = false, onView }) => {
   };
 
   useEffect(() => {
+    if (inView && !hasIntersected) {
+      setHasIntersected(true);
+    }
     const video = videoRef.current;
     if (!video) return;
     if (inView) {
@@ -99,7 +103,7 @@ const VideoCard = ({ campaign, isPortrait = false, onView }) => {
     } else {
       video.pause();
     }
-  }, [inView]);
+  }, [inView, hasIntersected]);
 
   return (
     <motion.div
@@ -108,19 +112,24 @@ const VideoCard = ({ campaign, isPortrait = false, onView }) => {
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.6 }}
       className={`relative overflow-hidden rounded-2xl cursor-pointer group ${isPortrait ? 'aspect-[9/16]' : 'aspect-video'
-        }`}
+        } bg-gray-900`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onView(campaign)}
     >
+      {!hasIntersected && (
+        <div className="absolute inset-0 flex items-center justify-center">
+           <div className="w-8 h-8 border-2 border-white/20 border-t-white/60 rounded-full animate-spin"></div>
+        </div>
+      )}
       <video
         ref={setRefs}
-        src={campaign.src}
+        src={hasIntersected ? campaign.src : ""}
         muted
         loop
         playsInline
-        preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+        preload="none"
+        className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.02] ${hasIntersected ? 'opacity-100' : 'opacity-0'}`}
       />
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

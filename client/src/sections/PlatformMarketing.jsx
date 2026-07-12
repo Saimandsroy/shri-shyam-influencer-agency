@@ -1,5 +1,21 @@
 import { motion } from 'framer-motion';
 import { FaYoutube, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
+
+const LazyVideo = ({ src, className }) => {
+  const { ref, inView } = useInView({ triggerOnce: true, rootMargin: '200px 0px' });
+  return (
+    <div ref={ref} className="w-full h-full relative bg-gray-900">
+      {inView ? (
+        <video src={src} autoPlay muted loop playsInline className={className} />
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center">
+           <div className="w-6 h-6 border-2 border-white/20 border-t-white/60 rounded-full animate-spin"></div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const PlatformMarketing = () => {
   return (
@@ -71,12 +87,8 @@ const PlatformMarketing = () => {
               {/* YouTube Video Mockup Frame */}
               <div className="relative w-full max-w-[440px] aspect-[16/10] bg-white rounded-xl p-2.5 shadow-2xl border border-white/10">
                 <div className="relative w-full h-full rounded-lg overflow-hidden bg-black aspect-video">
-                  <video
+                  <LazyVideo
                     src="/WhatsApp Video 2026-06-10 at 10.39.13.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -162,12 +174,8 @@ const PlatformMarketing = () => {
                 {/* Left tilted phone */}
                 <div className="absolute left-[-10px] sm:left-[-20px] top-[40px] w-[110px] sm:w-[140px] aspect-[9/19] bg-white rounded-[24px] p-1 shadow-2xl border border-white/20 transform -rotate-12 overflow-hidden z-10 transition-transform hover:scale-105 duration-300">
                   <div className="w-full h-full rounded-[21px] overflow-hidden bg-black">
-                    <video
+                    <LazyVideo
                       src="/WhatsApp Video 2026-06-10 at 10.39.13 (1).mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -176,12 +184,8 @@ const PlatformMarketing = () => {
                 {/* Center front phone */}
                 <div className="absolute w-[125px] sm:w-[155px] aspect-[9/19] bg-white rounded-[28px] p-[5px] shadow-2xl border-2 border-white/40 overflow-hidden z-25 transition-transform hover:scale-105 duration-300">
                   <div className="w-full h-full rounded-[24px] overflow-hidden bg-black relative">
-                    <video
+                    <LazyVideo
                       src="/WhatsApp Video 2026-06-10 at 10.39.14 (1).mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
                       className="w-full h-full object-cover"
                     />
                     {/* Small user label mockup overlay */}
@@ -194,12 +198,8 @@ const PlatformMarketing = () => {
                 {/* Right tilted phone */}
                 <div className="absolute right-[-10px] sm:right-[-20px] top-[40px] w-[110px] sm:w-[140px] aspect-[9/19] bg-white rounded-[24px] p-1 shadow-2xl border border-white/20 transform rotate-12 overflow-hidden z-10 transition-transform hover:scale-105 duration-300">
                   <div className="w-full h-full rounded-[21px] overflow-hidden bg-black relative">
-                    <video
+                    <LazyVideo
                       src="/WhatsApp Video 2026-06-10 at 10.39.14 (2).mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute bottom-3 left-2 text-[6px] sm:text-[8px] text-white/70">
@@ -277,12 +277,8 @@ const PlatformMarketing = () => {
                 {/* Left tilted phone */}
                 <div className="absolute left-[-15px] sm:left-[-25px] top-[40px] w-[105px] sm:w-[135px] aspect-[9/19] bg-white rounded-[24px] p-1 shadow-2xl border border-white/20 transform -rotate-12 overflow-hidden z-10 transition-transform hover:scale-105 duration-300">
                   <div className="w-full h-full rounded-[21px] overflow-hidden bg-black">
-                    <video
+                    <LazyVideo
                       src="/WhatsApp Video 2026-06-10 at 10.39.16.mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -291,12 +287,8 @@ const PlatformMarketing = () => {
                 {/* Center front phone */}
                 <div className="absolute w-[120px] sm:w-[150px] aspect-[9/19] bg-white rounded-[28px] p-[5px] shadow-2xl border-2 border-white/40 overflow-hidden z-25 transition-transform hover:scale-105 duration-300">
                   <div className="w-full h-full rounded-[24px] overflow-hidden bg-black">
-                    <video
+                    <LazyVideo
                       src="/WhatsApp Video 2026-06-10 at 10.39.16 (1).mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -305,12 +297,8 @@ const PlatformMarketing = () => {
                 {/* Right tilted phone */}
                 <div className="absolute right-[-15px] sm:right-[-25px] top-[40px] w-[105px] sm:w-[135px] aspect-[9/19] bg-white rounded-[24px] p-1 shadow-2xl border border-white/20 transform rotate-12 overflow-hidden z-10 transition-transform hover:scale-105 duration-300">
                   <div className="w-full h-full rounded-[21px] overflow-hidden bg-black">
-                    <video
+                    <LazyVideo
                       src="/WhatsApp Video 2026-06-10 at 10.39.16 (2).mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
                       className="w-full h-full object-cover"
                     />
                   </div>

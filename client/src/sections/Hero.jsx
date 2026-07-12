@@ -463,38 +463,69 @@ const BrandLogo = ({ brand }) => {
 };
 
 /* ─── Premium Sleek Media Card with Floating Brand Logo Badge ─── */
-const MediaCard = ({ item }) => (
-  <div className="relative w-full aspect-[4/5] mb-8 group cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-3">
-    {/* Inner Rounded Media Card */}
-    <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-[#091337] shadow-[0_20px_40px_rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.06)] group-hover:shadow-[0_40px_60px_rgba(222,13,64,0.25)] transition-shadow duration-700">
-      <video
-        src={item.src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-      />
+const MediaCard = ({ item }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const videoRef = useRef(null);
 
-      {/* Subtle Inner Shadow overlay */}
-      <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] rounded-[24px] pointer-events-none" />
+  // When hover state changes, play/pause accordingly
+  useEffect(() => {
+    if (isHovered && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    } else if (!isHovered && videoRef.current) {
+      videoRef.current.pause();
+      // Optional: reset video to start when hover ends
+      // videoRef.current.currentTime = 0; 
+    }
+  }, [isHovered]);
 
-      {/* Minimal Play Button */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/20 backdrop-blur-[2px]">
-        <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center shadow-2xl transform scale-90 group-hover:scale-100 transition-transform duration-500 ease-out">
-          <svg className="w-6 h-6 text-[#111] ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+  return (
+    <div 
+      className="relative w-full aspect-[4/5] mb-8 group cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-3"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
+      tabIndex={0}
+    >
+      {/* Inner Rounded Media Card */}
+      <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-[#091337] shadow-[0_20px_40px_rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.06)] group-hover:shadow-[0_40px_60px_rgba(222,13,64,0.25)] transition-shadow duration-700">
+        
+        {/* Sleek Skeleton / Gradient Placeholder */}
+        <div className={`absolute inset-0 w-full h-full bg-gradient-to-br from-[#1a2344] to-[#091337] flex items-center justify-center transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
+           <div className="w-10 h-10 border-2 border-white/10 border-t-white/40 rounded-full animate-spin"></div>
+        </div>
+
+        {/* Video Element - only loaded when hovered for the first time */}
+        <video
+          ref={videoRef}
+          src={isHovered ? item.src : ""} 
+          muted
+          loop
+          playsInline
+          preload="none"
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+        />
+
+        {/* Subtle Inner Shadow overlay */}
+        <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] rounded-[24px] pointer-events-none" />
+
+        {/* Minimal Play Button */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/20 backdrop-blur-[2px]">
+          <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center shadow-2xl transform scale-90 group-hover:scale-100 transition-transform duration-500 ease-out">
+            <svg className="w-6 h-6 text-[#111] ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+          </div>
         </div>
       </div>
-    </div>
 
-    {/* Floating Brand Logo Badge overlapping borders */}
-    {item.brand && (
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border border-gray-200/10 shadow-[0_4px_15px_rgba(0,0,0,0.15)] flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-        <BrandLogo brand={item.brand} />
-      </div>
-    )}
-  </div>
-);
+      {/* Floating Brand Logo Badge overlapping borders */}
+      {item.brand && (
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border border-gray-200/10 shadow-[0_4px_15px_rgba(0,0,0,0.15)] flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+          <BrandLogo brand={item.brand} />
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Hero = () => {
   return (

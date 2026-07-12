@@ -123,6 +123,8 @@ const Contact = () => {
                 <img
                   src="/contact_photo.jpg"
                   alt="The Hidden Fox Co. Founder"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top"
                 />
                 {/* Gradient overlay fading into card */}

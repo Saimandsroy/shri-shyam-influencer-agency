@@ -92,8 +92,12 @@ const VideoViewer = ({ src, title, onClose }) => {
 /* ─── Case Study Video Panel ─── */
 const CaseStudyVideo = ({ src, poster, inViewport, onView }) => {
   const videoRef = useRef(null);
+  const [hasIntersected, setHasIntersected] = useState(false);
 
   useEffect(() => {
+    if (inViewport && !hasIntersected) {
+      setHasIntersected(true);
+    }
     const video = videoRef.current;
     if (!video) return;
     if (inViewport) {
@@ -101,7 +105,7 @@ const CaseStudyVideo = ({ src, poster, inViewport, onView }) => {
     } else {
       video.pause();
     }
-  }, [inViewport]);
+  }, [inViewport, hasIntersected]);
 
   return (
     <div
@@ -111,13 +115,13 @@ const CaseStudyVideo = ({ src, poster, inViewport, onView }) => {
     >
       <video
         ref={videoRef}
-        src={src}
+        src={hasIntersected ? src : ""}
         poster={poster}
         muted
         loop
         playsInline
-        preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover"
+        preload="none"
+        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
       />
       {/* Hover play overlay */}
       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20">
