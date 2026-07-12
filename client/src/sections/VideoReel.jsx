@@ -85,6 +85,8 @@ const VideoCard = ({ campaign, isPortrait = false, onView }) => {
   const videoRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [hasIntersected, setHasIntersected] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
   const { ref: inViewRef, inView } = useInView({ threshold: 0.2 });
 
   const setRefs = (node) => {
@@ -117,11 +119,18 @@ const VideoCard = ({ campaign, isPortrait = false, onView }) => {
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onView(campaign)}
     >
-      {!hasIntersected && (
-        <div className="absolute inset-0 flex items-center justify-center">
+      {isLoading && !hasError && (
+        <div className="absolute inset-0 flex items-center justify-center z-10 transition-opacity duration-500">
            <div className="w-8 h-8 border-2 border-white/20 border-t-white/60 rounded-full animate-spin"></div>
         </div>
       )}
+      
+      {hasError && (
+        <div className="absolute inset-0 flex items-center justify-center z-10 text-white/30 transition-opacity duration-500">
+           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+        </div>
+      )}
+
       <video
         ref={setRefs}
         src={hasIntersected ? campaign.src : ""}
@@ -129,7 +138,12 @@ const VideoCard = ({ campaign, isPortrait = false, onView }) => {
         loop
         playsInline
         preload="none"
-        className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.02] ${hasIntersected ? 'opacity-100' : 'opacity-0'}`}
+        onLoadedData={() => setIsLoading(false)}
+        onError={() => {
+          setIsLoading(false);
+          setHasError(true);
+        }}
+        className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.02] ${isLoading || hasError ? 'opacity-0' : 'opacity-100'}`}
       />
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

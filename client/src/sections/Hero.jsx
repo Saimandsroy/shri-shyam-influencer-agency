@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import { FaYoutube, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
 
 const clientBrands = ['ONEPLUS', 'GROWW', 'MEESHO', 'AMAZON', 'PAYTM', 'BOAT', 'NYKAA', 'ZOMATO', 'MAMAEARTH', 'MYNTRA', 'FLIPKART'];
 
@@ -464,53 +465,75 @@ const BrandLogo = ({ brand }) => {
 
 /* ─── Premium Sleek Media Card with Floating Brand Logo Badge ─── */
 const MediaCard = ({ item }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hasIntersected, setHasIntersected] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  const { ref: inViewRef, inView } = useInView({ threshold: 0.1 });
   const videoRef = useRef(null);
 
-  // When hover state changes, play/pause accordingly
+  const setRefs = (node) => {
+    videoRef.current = node;
+    inViewRef(node);
+  };
+
   useEffect(() => {
-    if (isHovered && videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    } else if (!isHovered && videoRef.current) {
-      videoRef.current.pause();
-      // Optional: reset video to start when hover ends
-      // videoRef.current.currentTime = 0; 
+    if (inView && !hasIntersected) {
+      setHasIntersected(true);
     }
-  }, [isHovered]);
+    const video = videoRef.current;
+    if (!video) return;
+    if (inView) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [inView, hasIntersected]);
 
   return (
     <div 
       className="relative w-full aspect-[4/5] mb-8 group cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-3"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onFocus={() => setIsHovered(true)}
-      onBlur={() => setIsHovered(false)}
       tabIndex={0}
     >
       {/* Inner Rounded Media Card */}
       <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-[#091337] shadow-[0_20px_40px_rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.06)] group-hover:shadow-[0_40px_60px_rgba(222,13,64,0.25)] transition-shadow duration-700">
         
-        {/* Sleek Skeleton / Gradient Placeholder */}
-        <div className={`absolute inset-0 w-full h-full bg-gradient-to-br from-[#1a2344] to-[#091337] flex items-center justify-center transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
-           <div className="w-10 h-10 border-2 border-white/10 border-t-white/40 rounded-full animate-spin"></div>
-        </div>
+        {/* Loading Spinner */}
+        {isLoading && !hasError && (
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#1a2344] to-[#091337] flex items-center justify-center z-10 transition-opacity duration-500">
+             <div className="w-10 h-10 border-2 border-white/10 border-t-white/40 rounded-full animate-spin"></div>
+          </div>
+        )}
 
-        {/* Video Element - only loaded when hovered for the first time */}
+        {/* Error / Fallback Background */}
+        {hasError && (
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#1a2344] to-[#091337] flex flex-col items-center justify-center z-10 text-white/40 transition-opacity duration-500">
+             <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-2">
+               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+             </div>
+          </div>
+        )}
+
+        {/* Video Element */}
         <video
-          ref={videoRef}
-          src={isHovered ? item.src : ""} 
+          ref={setRefs}
+          src={hasIntersected ? item.src : ""} 
           muted
           loop
           playsInline
           preload="none"
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+          onLoadedData={() => setIsLoading(false)}
+          onError={() => {
+            setIsLoading(false);
+            setHasError(true);
+          }}
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 ${isLoading || hasError ? 'opacity-0' : 'opacity-100'}`}
         />
 
         {/* Subtle Inner Shadow overlay */}
-        <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] rounded-[24px] pointer-events-none" />
+        <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] rounded-[24px] pointer-events-none z-20" />
 
         {/* Minimal Play Button */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/20 backdrop-blur-[2px]">
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/20 backdrop-blur-[2px] z-20">
           <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center shadow-2xl transform scale-90 group-hover:scale-100 transition-transform duration-500 ease-out">
             <svg className="w-6 h-6 text-[#111] ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
           </div>
