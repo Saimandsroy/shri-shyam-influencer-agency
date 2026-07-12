@@ -464,30 +464,35 @@ const BrandLogo = ({ brand }) => {
 };
 
 /* ─── Premium Sleek Media Card with Floating Brand Logo Badge ─── */
-const MediaCard = ({ item }) => {
-  const [hasIntersected, setHasIntersected] = useState(false);
+const MediaCard = ({ item, index, originalLength, isHeroVisible }) => {
+  // Only the original items load immediately. Clones are staggered.
+  const [hasIntersected, setHasIntersected] = useState(index < originalLength);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const { ref: inViewRef, inView } = useInView({ threshold: 0.1 });
   const videoRef = useRef(null);
 
-  const setRefs = (node) => {
-    videoRef.current = node;
-    inViewRef(node);
-  };
-
+  // Staggered loading for cloned items so we don't fetch 36 videos at once on page load
   useEffect(() => {
-    if (inView && !hasIntersected) {
-      setHasIntersected(true);
+    if (!hasIntersected) {
+      const delay = 1500 + (index * 200);
+      const timer = setTimeout(() => {
+        setHasIntersected(true);
+      }, delay);
+      return () => clearTimeout(timer);
     }
+  }, [index, hasIntersected]);
+
+  // Play or pause based on whether the entire Hero section is in the viewport
+  useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
-    if (inView) {
+    if (!video || !hasIntersected) return;
+    
+    if (isHeroVisible) {
       video.play().catch(() => {});
     } else {
       video.pause();
     }
-  }, [inView, hasIntersected]);
+  }, [isHeroVisible, hasIntersected]);
 
   return (
     <div 
@@ -515,7 +520,7 @@ const MediaCard = ({ item }) => {
 
         {/* Video Element */}
         <video
-          ref={setRefs}
+          ref={videoRef}
           src={hasIntersected ? item.src : ""} 
           muted
           loop
@@ -551,8 +556,10 @@ const MediaCard = ({ item }) => {
 };
 
 const Hero = () => {
+  const { ref: heroRef, inView: isHeroVisible } = useInView({ rootMargin: '200px 0px' });
+
   return (
-    <section id="home" className="relative min-h-screen bg-[#0f1634] text-white overflow-hidden">
+    <section ref={heroRef} id="home" className="relative min-h-screen bg-[#0f1634] text-white overflow-hidden">
 
       {/* ─── Animated Premium Background ─── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -665,7 +672,7 @@ const Hero = () => {
             <div className="w-1/3 overflow-hidden relative">
               <div className="flex flex-col animate-marquee-vertical hover:[animation-play-state:paused]">
                 {[...col1Media, ...col1Media, ...col1Media].map((item, i) => (
-                  <MediaCard key={`col1-${i}`} item={item} />
+                  <MediaCard key={`col1-${i}`} item={item} index={i} originalLength={col1Media.length} isHeroVisible={isHeroVisible} />
                 ))}
               </div>
             </div>
@@ -674,7 +681,7 @@ const Hero = () => {
             <div className="w-1/3 overflow-hidden relative pt-20">
               <div className="flex flex-col animate-marquee-vertical-reverse hover:[animation-play-state:paused]">
                 {[...col2Media, ...col2Media, ...col2Media, ...col2Media].map((item, i) => (
-                  <MediaCard key={`col2-${i}`} item={item} />
+                  <MediaCard key={`col2-${i}`} item={item} index={i} originalLength={col2Media.length} isHeroVisible={isHeroVisible} />
                 ))}
               </div>
             </div>
@@ -683,7 +690,7 @@ const Hero = () => {
             <div className="w-1/3 overflow-hidden relative pt-10">
               <div className="flex flex-col animate-marquee-vertical hover:[animation-play-state:paused]">
                 {[...col3Media, ...col3Media, ...col3Media, ...col3Media].map((item, i) => (
-                  <MediaCard key={`col3-${i}`} item={item} />
+                  <MediaCard key={`col3-${i}`} item={item} index={i} originalLength={col3Media.length} isHeroVisible={isHeroVisible} />
                 ))}
               </div>
             </div>
