@@ -4,9 +4,9 @@ const serviceLinks = ['Instagram Campaigns', 'YouTube Integrations', 'Reels & Sh
 const companyLinks = ['About', 'Influencers', 'Case Studies', 'Blog', 'Careers', 'Contact'];
 
 const socialLinks = [
-  { icon: FiInstagram, href: '#', label: 'Instagram' },
+  { icon: FiInstagram, href: 'https://www.instagram.com/thehiddenfox.co?igsh=eTZxdWcxdXh6dDNi&utm_source=qr', label: 'Instagram' },
   { icon: FiYoutube, href: '#', label: 'YouTube' },
-  { icon: FiLinkedin, href: '#', label: 'LinkedIn' },
+  { icon: FiLinkedin, href: 'https://www.linkedin.com/in/vivek-mehta-89b38b415/', label: 'LinkedIn' },
   { icon: FiTwitter, href: '#', label: 'Twitter' },
 ];
 
